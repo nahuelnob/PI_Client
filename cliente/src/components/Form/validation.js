@@ -1,4 +1,4 @@
-const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3})+$/;
+const regexEmail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{3})+$/;
 
 const validation = (inputs) => {
   const errors = {};

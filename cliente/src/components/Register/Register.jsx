@@ -1,8 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import validation from "./validation";
 import { useState } from "react";
+import axios from "axios";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     nombre: "",
     apellido: "",
@@ -10,22 +12,34 @@ const Register = () => {
     password: "",
   });
 
+  const nwUser = async (user) => {
+    try {
+      await axios.post(`http://localhost:3001/user`, user);
+      window.alert("usuario creado con exito");
+      navigate("/");
+    } catch (error) {
+      window.alert(error.message);
+    }
+  };
+
   const [err, setErr] = useState({});
-  console.log(err);
+  console.log('error en registrer ---> ', err);
 
   const handleChange = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
     setErr(validation({ ...userData, [e.target.name]: e.target.value }));
   };
+  //nwUser(userData);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    nwUser(userData);
     setErr(validation(userData));
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <h1> Registrate </h1>
         <label htmlFor="nombre"> Nombre </label>
         <input
@@ -61,9 +75,10 @@ const Register = () => {
           onChange={handleChange}
         ></input>
         {/* <p style={{ color: "white" }}>{errors.password}</p> */}
-        <NavLink to="/">
-          <button type="submit"> Submit </button>
-        </NavLink>
+        <button type="submit" onClick={handleSubmit}>
+          {" "}
+          Submit{" "}
+        </button>
       </form>
     </div>
   );

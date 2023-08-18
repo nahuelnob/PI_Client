@@ -1,24 +1,31 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import validation from "../Register/validation";
+import validation from "../Form/validation";
 
-const Form = () => {
+const Form = (props) => {
+  // saco al login de las props que mando desde app.js
+  const { login } = props;
+  ////////////////////////////////////////////
+  //Defino estado locales para la data del usuario y los errores
   const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
 
   const [err, setErr] = useState({});
-  console.log(err);
+  console.log('error del form ->',err);
+  ////////////////////////////////////////////
+// handlechange setea la UserData y los errores
+const handleChange = (e) => {
+  setUserData({ ...userData, [e.target.name]: e.target.value });
+  setErr(validation({ ...userData, [e.target.name]: e.target.value }));
+};
 
-  const handleChange = (e) => {
-    setUserData({ ...userData, [e.target.name]: e.target.value });
-    setErr(validation({ ...userData, [e.target.name]: e.target.value }));
-  };
-
+////////////////////////////////////////////
+// handleSubmit ejecuta login
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErr(validation(userData));
+    login(userData);
   };
   return (
     <div>

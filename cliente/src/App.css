@@ -1,38 +1,13 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
+  background-color: brown;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  /* background-image: url(https://img.freepik.com/fotos-premium/banderas-nacionales-diferentes-paises-mundo-monton-disperso_113767-1771.jpg?size=626&ext=jpg&ga=GA1.1.908157950.1692313965&semt=ais); */
+  /* background-image: url(https://img.freepik.com/fotos-premium/dia-internacional-multilateralismo-diplomacia-paz-muchas-banderas-diferentes-paises-ai-generativo_564312-1249.jpg?size=626&ext=jpg&ga=GA1.1.908157950.1692313965&semt=ais); */
+  /* background-image: url(https://img.freepik.com/fotos-premium/collage-pantalla-que-muestra-banderas-internacionales_13339-278237.jpg?size=626&ext=jpg&ga=GA1.2.908157950.1692313965&semt=ais); */
+  background-image: url(https://img.freepik.com/fotos-premium/varias-banderas-paises_13339-286829.jpg?size=626&ext=jpg&ga=GA1.2.908157950.1692313965&semt=ais);
+  background-size: cover;
+  width: 79rem;
+  height: 37.7rem;
 }
