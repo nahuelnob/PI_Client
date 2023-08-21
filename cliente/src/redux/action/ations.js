@@ -1,15 +1,15 @@
-import { ADD_USER, /* REMOVE_FAV, FILTER, ORDER, RESET  */} from "./types";
+import { ADD_COUNTRIES, /* REMOVE_FAV, FILTER, ORDER, RESET  */} from "./types";
 import axios from "axios";
 
 
-const URL = "https://localhost:3001/user";
+const URL = "https://localhost:3001/";
 
-export const addUser = (usuario) => {
+export const addCountries = (usuario) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.post(`${URL}`, usuario);
+      const { data } = await axios(`${URL}/countries`);
       return dispatch({
-        type: ADD_USER,
+        type: ADD_COUNTRIES,
         payload: data,
       });
     } catch (error) {

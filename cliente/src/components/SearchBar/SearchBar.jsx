@@ -1,18 +1,23 @@
 import { useState } from "react";
 import axios from "axios";
+import { Card } from "../Card/Card";
+
 
 const Searchbar = () => {
   const [country, setCountry] = useState([]);
-  const [id, setId] = useState("");
+  const [name, setName] = useState("");
 
   const handleChange = (e) => {
-    setId("");
-    setId(e.target.value);
+    setName("");
+    setName(e.target.value);
   };
 
-  const onSearch = async (id) => {
+  const onSearch = async (name) => {
     try {
-      const { data } = await axios(`http://localhost:3001/countries/${id}`);
+      const { data } = await axios(
+        `http://localhost:3001/countries?name=${name}`
+      );
+      console.log("datarda ->", data);
 
       setCountry([data]);
     } catch (error) {
@@ -38,19 +43,20 @@ const Searchbar = () => {
     });
 
     return (
-      <div className="body" style={{ backgroundColor: "grey" }}>
-        <p>{id} </p>
-        <p>{name} </p>
-        <img src={flags} alt="" />
-        <p>{continent}</p>
-        <p>{capital}</p>
-        <p>{subRegion}</p>
-        <p>area : {area} mts</p>
-        <p>poblacion : {population}</p>
-        <p>Actividades : {actividades}</p>
-      </div>
-    );
-  });
+      <Card
+      id = {id}
+      name = {name}
+      flags = {flags}
+      continent = {continent}
+      capital = {capital}
+      subRegion = {subRegion}
+      area = {area}
+      population = {population}
+      Activities = {actividades}
+      />
+      
+      );
+    });
 
   return (
     <div className="">
@@ -59,7 +65,7 @@ const Searchbar = () => {
         placeholder="Buscar pais x id o por nombre..."
         onChange={handleChange}
       />
-      <button type="submit" onClick={() => onSearch(id)}>
+      <button type="submit" onClick={() => onSearch(name)}>
         Buscar
       </button>
       <div>{pais}</div>
@@ -68,3 +74,16 @@ const Searchbar = () => {
 };
 
 export default Searchbar;
+
+//////////////////////////////////////////////////////////////////////////////////
+/*       <div className="body" style={{ backgroundColor: "grey" }}>
+            <p>{id} </p>
+            <p>{name} </p>
+            <img src={flags} alt="" />
+            <p>{continent}</p>
+            <p>{capital}</p>
+            <p>{subRegion}</p>
+            <p>area : {area} mts</p>
+            <p>poblacion : {population}</p>
+            <p>Actividades : {actividades}</p>
+          </div> */

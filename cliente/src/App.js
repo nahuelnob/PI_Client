@@ -6,6 +6,8 @@ import Form from "./components/Form/Form";
 import Register from "./components/Register/Register";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { Countries } from "./components/Countries/Countries";
 
 function App() {
   const [access, setAccess] = useState(false);
@@ -28,16 +30,20 @@ function App() {
   };
 
   // El useEffect hace q mientras el access = false se quede en '/' y no avance en la pagina
-  useEffect(() => {
-    !access && navigate("/");
-  },[access]);
+  // useEffect(() => {
+  //   !access && navigate("/");
+  // },[access]);
+
+  // Conecto con el estado global
+  const countries = useSelector((state) => state.countries)
 
   return (
     <div className="App">
       <Routes>
         <Route path="/home" element={<SearchBar />} />
-        <Route path="/" element={<Form login={login} />} />
-        <Route path="/register" element={<Register />} />
+        {/* <Route path="/" element={<Form login={login} />} /> */}
+        {/* <Route path="/register" element={<Register />} /> */}
+        <Route path="/countries" element={<Countries countries={countries} />} />
       </Routes>
     </div>
   );

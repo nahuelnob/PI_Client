@@ -1,17 +1,17 @@
-import { ADD_USER } from "../action/types";
+import { ADD_COUNTRIES } from "../action/types";
 
 export const initialState = {
-  myFavorites: [],
-  allCharactersFav: [], // VA A TENER TODOS LOS FAVORITOS (solo lo cambian el add o el remove)
+  countries: [],
+  allCountries: [],
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_USER:
+    case ADD_COUNTRIES:
       return {
         ...state,
-        myFavorites: action.payload,
-        allCharactersFav: action.payload,
+        countries: action.payload,
+        allCountries: action.payload,
       };
 
     case REMOVE_FAV:
