@@ -1,6 +1,9 @@
-import { useState } from "react";
 import axios from "axios";
+
 import { Card } from "../Card/Card";
+
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 
 const Searchbar = () => {
@@ -19,7 +22,7 @@ const Searchbar = () => {
       );
       console.log("datarda ->", data);
 
-      setCountry([data]);
+      setCountry(data);
     } catch (error) {
       window.alert(error.message);
     }
@@ -44,30 +47,34 @@ const Searchbar = () => {
 
     return (
       <Card
-      id = {id}
-      name = {name}
-      flags = {flags}
-      continent = {continent}
-      capital = {capital}
-      subRegion = {subRegion}
-      area = {area}
-      population = {population}
-      Activities = {actividades}
+        id={id}
+        name={name}
+        flags={flags}
+        continent={continent}
+        capital={capital}
+        subRegion={subRegion}
+        area={area}
+        population={population}
+        Activities={actividades}
       />
-      
-      );
-    });
+    );
+  });
 
   return (
     <div className="">
-      <input
-        type="text"
-        placeholder="Buscar pais x id o por nombre..."
-        onChange={handleChange}
-      />
+      <input type="text" placeholder="País..." onChange={handleChange} />
       <button type="submit" onClick={() => onSearch(name)}>
         Buscar
       </button>
+      <NavLink to={"/countries"}>
+        <button type="submit">Ver todos los paises</button>
+      </NavLink>
+      <NavLink to={"/registerAct"}>
+        <button type="submit">subir actividad</button>
+      </NavLink>
+      <NavLink to={"/activities"}>
+        <button type="submit">Ver todas las actividades</button>
+      </NavLink>
       <div>{pais}</div>
     </div>
   );

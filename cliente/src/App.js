@@ -1,13 +1,16 @@
 import "./App.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 import SearchBar from "./components/SearchBar/SearchBar";
 import Form from "./components/Form/Form";
 import Register from "./components/Register/Register";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useSelector } from "react-redux";
 import { Countries } from "./components/Countries/Countries";
+import { FormAct } from "./components/FormAct/FormAct";
+
+import axios from "axios";
+import { Activities } from "./components/Activities/Activities";
 
 function App() {
   const [access, setAccess] = useState(false);
@@ -30,20 +33,22 @@ function App() {
   };
 
   // El useEffect hace q mientras el access = false se quede en '/' y no avance en la pagina
-  // useEffect(() => {
-  //   !access && navigate("/");
-  // },[access]);
+  useEffect(() => {
+    !access && navigate("/");
+  },[access]);
 
   // Conecto con el estado global
-  const countries = useSelector((state) => state.countries)
+  // const countries = useSelector((state) => state.countries)
 
   return (
     <div className="App">
       <Routes>
         <Route path="/home" element={<SearchBar />} />
-        {/* <Route path="/" element={<Form login={login} />} /> */}
-        {/* <Route path="/register" element={<Register />} /> */}
-        <Route path="/countries" element={<Countries countries={countries} />} />
+        <Route path="/" element={<Form login={login} />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/registerAct" element={<FormAct />} />
+        <Route path="/countries" element={<Countries/>} />
+        <Route path="/activities" element={<Activities/>} />
       </Routes>
     </div>
   );

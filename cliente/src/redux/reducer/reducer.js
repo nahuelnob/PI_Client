@@ -1,12 +1,15 @@
-import { ADD_COUNTRIES } from "../action/types";
+import { ADD_COUNTRIES , ORDER, FILTER, ADD_ACTIVITIES} from "../action/types";
 
 export const initialState = {
   countries: [],
   allCountries: [],
+  activities: [],
+  allActivities: [],
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    
     case ADD_COUNTRIES:
       return {
         ...state,
@@ -14,53 +17,55 @@ const rootReducer = (state = initialState, action) => {
         allCountries: action.payload,
       };
 
-    case REMOVE_FAV:
+    case ADD_ACTIVITIES:
       return {
         ...state,
-        myFavorites: action.payload,
-        allCharactersFav: action.payload,
-
-        /*      
-        *Esto ya no lo uso   
-        myFavorites: state.allCharactersFav.filter(
-          (favorito) => favorito.id !== Number(action.payload)
-        ),
-        allCharactersFav: state.allCharactersFav.filter(
-          (favorito) => favorito.id !== Number(action.payload)
-        ), */
+        activities: action.payload,
+        allActivities: action.payload,
       };
+
 
     case FILTER:
       return {
         ...state,
-        myFavorites: state.allCharactersFav.filter(
-          (genero) => genero.gender === action.payload
+        countries: state.allCountries.filter(
+          (continente) => continente.continent === action.payload
         ),
       };
 
     case ORDER:
-      const newOrder = state.allCharactersFav.sort((a, b) => {
+      const newOrder = state.allCountries.sort((a, b) => {
         if (action.payload === "A") {
-          if (a.id < b.id) return -1;
-          if (b.id < a.id) return 1;
+          if (a.name < b.name) return -1;
+          if (b.name < a.name) return 1;
           return 0;
         }
         if (action.payload === "D") {
-          if (a.id < b.id) return 1;
-          if (b.id < a.id) return -1;
+          if (a.name < b.name) return 1;
+          if (b.name < a.name) return -1;
+          return 0;
+        }
+        if (action.payload === "PA") {
+          if (a.population < b.population) return -1;
+          if (b.population < a.population) return 1;
+          return 0;
+        }
+        if (action.payload === "PD") {
+          if (a.population < b.population) return 1;
+          if (b.population < a.population) return -1;
           return 0;
         }
       });
       return {
         ...state,
-        myFavorites: [...newOrder],
+        countries: [...newOrder],
       };
 
-    case RESET:
-      return {
-        ...state,
-        myFavorites: [...state.allCharactersFav],
-      };
+    // case RESET:
+    //   return {
+    //     ...state,
+    //     myFavorites: [...state.allCharactersFav],
+    //   };
 
     default:
       return { ...state };

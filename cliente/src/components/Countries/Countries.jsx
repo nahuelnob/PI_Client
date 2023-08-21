@@ -1,68 +1,36 @@
-/* import { useDispatch } from "react-redux";
-import { Card } from "../Card/Card";
-
-export const Countries = (props) => {
-  const dispatch = useDispatch();
-  const lista = props.countries.map((pais) => {
-    const {
-      id,
-      name,
-      flags,
-      continent,
-      capital,
-      subRegion,
-      area,
-      population,
-      Activities,
-    } = pais;
-    const actividades = Activities.map((act) => {
-      const { name } = act;
-      return <p>{name}</p>;
-    });
-    return (
-        <Card
-        id={id}
-        name={name}
-        flags={flags}
-        continent={continent}
-        capital={capital}
-        subRegion={subRegion}
-        area={area}
-        population={population}
-        Activities={actividades}
-        />
-    )
-  });
-
-  return (
-    <div>{lista}</div>
-  )
-}; */
-
-import { useState } from "react";
 import axios from "axios";
+
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addCountries, orderCards, filterCards } from "../../redux/action/ations";
+
 import { Card } from "../Card/Card";
 
 export const Countries = () => {
-  const [country, setCountry] = useState([]);
-  const [name, setName] = useState("");
-
-  const handleChange = (e) => {
-    setName("");
-    setName(e.target.value);
+  const dispatch = useDispatch();
+  
+  // Traigo el estado GLOBAL y lo defino
+  const countries = useSelector((state) => state.countries);
+  
+  //Ver todos
+  const handleFavorite = () => {
+    dispatch(addCountries());
+  };
+  // Orden
+  const handleOrder = (e) => {
+    e.preventDefault();
+    dispatch(orderCards(e.target.value));
+  };
+  // Filtrado
+  const handleFilter = (e) => {
+    e.preventDefault();
+    dispatch(filterCards(e.target.value));
   };
 
-  const onSearch = async () => {
-    try {
-      const { data } = await axios(`http://localhost:3001/countries`);
+  ///////////////////////////////////////////////////////
 
-      setCountry(data);
-    } catch (error) {
-      window.alert(error.message);
-    }
-  };
-
-  const pais = country.map((pais) => {
+  const pais = countries.map((pais) => {
     const {
       id,
       name,
@@ -95,15 +63,44 @@ export const Countries = () => {
   });
 
   return (
-    <div className="">
-      <input
-        type="text"
-        placeholder="Buscar pais x id o por nombre..."
-        onChange={handleChange}
-      />
-      <button type="submit" onClick={() => onSearch()}>
+    <div>
+      {/* IR A HOME */}
+      <NavLink to={"/home"}>
+        <button type="submit">home</button>
+      </NavLink>
+
+      {/* MOSTRAR */}
+      <button type="submit" onClick={handleFavorite}>
         Buscar
       </button>
+
+      {/* ORDEN */}
+      <select onChange={handleOrder} name="Order">
+        <option>Select order</option>
+        <option value="A">Ascendente</option>
+        <option value="D">Descendente</option>
+        <option value="PA">Poblacion Ascendente</option>
+        <option value="PD">Poblacion Descendente</option>
+      </select>
+
+      {/* FILTER */}
+      <select
+        onChange={handleFilter}
+        defaultValue={"DEFAULT"}
+        name="Filter"
+      >
+        <option value="DEFAULT" disable>
+          Filtrado
+        </option>
+        <option value="South America">South America</option>
+        <option value="Antarctica">Antarctica</option>
+        <option value="Genderless">Genderless</option>
+        <option value="North America">North America</option>
+        <option value="Oceania">Oceania</option>
+        <option value="Europe">Europe</option>
+        <option value="Africa">Africa</option>
+        <option value="Asia">Asia</option>
+      </select>
       <div>{pais}</div>
     </div>
   );
