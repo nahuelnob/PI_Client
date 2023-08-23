@@ -1,20 +1,19 @@
-import { useDispatch, useSelector } from "react-redux"
+import style from "./card.module.css";
 
 export const Card = (props) => {
-/*     const countries = useSelector((state) => {state.countries})
-
-    const dispatch = useDispatch() */
-    return (
-        <div>
-            <img src={props.flags} alt="" />
-            <h2>{props.name}</h2>
-            <p>{props.id}</p>
-            <p>{props.continent}</p>
-            <p>{props.capital}</p>
-            <p>{props.subRegion}</p>
-            <p>{props.area}</p>
-            <p>{props.population}</p>
-            <p>{props.Activities}</p>
-        </div>
-    )
-}
+  return (
+    <div className={style.div}>
+      <div className={style.containerImg}>
+        <img className={style.img} src={props.flags} alt="" />
+      </div>
+      <h2 className={style.name}>{props.name}</h2>
+      <p className={style.text}>{props.id}</p>
+      <p className={style.text}>{props.continent}</p>
+      <p className={style.text}>{props.capital}</p>
+      <p className={style.text}>{props.subRegion}</p>
+      <p className={style.text}>{props.area}</p>
+      <p className={style.text}>{props.population}</p>
+      <p className={style.text}>{props.Activities}</p>
+    </div>
+  );
+};

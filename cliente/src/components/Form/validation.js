@@ -18,9 +18,9 @@ const validation = (inputs) => {
   });
 
   inputs.password.length < 5 || inputs.password.length > 10
-    ? (errors.password = "La contraseña debe tener entre 6 y 10 letras")
+    ? (errors.password = "El password debe tener entre 6 y 10 letras")
     : !arrNumPass.length &&
-      (errors.password = "La contraseña debe tener al menos un numero");
+      (errors.password = "El password debe tener al menos un numero");
 
   return errors;
 };

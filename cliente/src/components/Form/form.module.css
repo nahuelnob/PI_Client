@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "coso"; /* Nombre de la fuente que usarás en tu hoja de estilos */
+  /* src: url("../../font/ClementePDaa-Hairline.ttf") format("opentype"); Ruta a tu archivo de fuente */
+  src: url("../../font/UniNeue-Trial-Regular.ttf") format("opentype"); /* Ruta a tu archivo de fuente */
+}
+
+.div {
+  display: flex;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30rem;
+  height: 35rem;
+  justify-content: center;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  filter: drop-shadow(0px 8px 8px black);
+}
+.form {
+    position: relative;
+    display: flex;
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo {
+  color: white;
+  font-size: xx-large;
+  align-items: center;
+  justify-content: center;
+  font-family: "coso";
+}
+
+.input {
+  width: 15rem;
+  height: 1.5rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-color: transparent;
+}
+.input:hover {
+  color: black;
+  background-color: lightgray;
+}
+.button {
+  width: 7rem;
+  height: 2.3rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: black;
+  color: white;
+  border: transparent;
+  font-family: "coso";
+}
+.button:hover {
+  background-color: red;
+}
+.label {
+  color: white;
+  margin: 0.5rem;
+  font-size: large;
+  font-family: "coso";
+}
+.text {
+  color: white;
+  font-family: "coso";
+}
