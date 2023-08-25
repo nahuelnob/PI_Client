@@ -1,7 +1,4 @@
-import axios from "axios";
-
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addCountries, orderCards, filterCards } from "../../redux/action/ations";
 
@@ -27,7 +24,6 @@ export const Countries = () => {
     e.preventDefault();
     dispatch(filterCards(e.target.value));
   };
-
   ///////////////////////////////////////////////////////
 
   const pais = countries.map((pais) => {
@@ -48,18 +44,17 @@ export const Countries = () => {
     });
 
     return (
-      <Card
-        id={id}
-        name={name}
+
+      <p>  {id} {name}</p>
+        /* name={name}
         flags={flags}
         continent={continent}
         capital={capital}
         subRegion={subRegion}
         area={area}
         population={population}
-        Activities={actividades}
-      />
-    );
+        Activities={actividades} */
+        );
   });
 
   return (
@@ -75,6 +70,8 @@ export const Countries = () => {
       </button>
 
       {/* ORDEN */}
+        <button onClick={handleOrder} value="A">Ascendente</button>
+        <button onClick={handleOrder} value="D">Descendente</button>
       <select onChange={handleOrder} name="Order">
         <option>Select order</option>
         <option value="A">Ascendente</option>
@@ -84,6 +81,8 @@ export const Countries = () => {
       </select>
 
       {/* FILTER */}
+        
+      <button onClick={handleFilter} value="South America">South America</button>
       <select
         onChange={handleFilter}
         defaultValue={"DEFAULT"}
@@ -94,7 +93,6 @@ export const Countries = () => {
         </option>
         <option value="South America">South America</option>
         <option value="Antarctica">Antarctica</option>
-        <option value="Genderless">Genderless</option>
         <option value="North America">North America</option>
         <option value="Oceania">Oceania</option>
         <option value="Europe">Europe</option>
@@ -105,3 +103,4 @@ export const Countries = () => {
     </div>
   );
 };
+

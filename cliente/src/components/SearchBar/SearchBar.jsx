@@ -5,11 +5,36 @@ import { Card } from "../Card/Card";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
+import style from "./searchBar.module.css";
+import { useSelector } from "react-redux";
+import { Countries } from "../Countries/Countries";
 
 const Searchbar = () => {
   const [country, setCountry] = useState([]);
   const [name, setName] = useState("");
 
+  ///////////////////////////////////////////////////////////
+  // PASAR DE PAGINAS | 10 x Pag
+  const [currentPage, setCurrentPage] = useState(1);
+  const cardsxPage = 10;
+  const startIndex = (currentPage - 1) * cardsxPage;
+  const endIndex = startIndex + cardsxPage;
+  const cardsx10 = country.slice(startIndex, endIndex);
+
+  const totalPages = Math.ceil(country.length / cardsxPage);
+
+  const goToPreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const goToNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+    ///////////////////////////////////////////////////////////
+  };
   const handleChange = (e) => {
     setName("");
     setName(e.target.value);
@@ -20,15 +45,15 @@ const Searchbar = () => {
       const { data } = await axios(
         `http://localhost:3001/countries?name=${name}`
       );
-      console.log("datarda ->", data);
 
       setCountry(data);
     } catch (error) {
       window.alert(error.message);
     }
   };
+  if (country.length === 0) onSearch(name);
 
-  const pais = country.map((pais) => {
+  const pais = cardsx10.map((pais) => {
     const {
       id,
       name,
@@ -61,22 +86,58 @@ const Searchbar = () => {
   });
 
   return (
-    <div className="">
-      <input type="text" placeholder="País..." onChange={handleChange} />
-      <button type="submit" onClick={() => onSearch(name)}>
-        Buscar
-      </button>
-      <NavLink to={"/countries"}>
-        <button type="submit">Ver todos los paises</button>
-      </NavLink>
-      <NavLink to={"/registerAct"}>
-        <button type="submit">subir actividad</button>
-      </NavLink>
-      <NavLink to={"/activities"}>
-        <button type="submit">Ver todas las actividades</button>
-      </NavLink>
-      <div>{pais}</div>
+    <>
+    <div className={style.div}>
+      <input
+        className={style.input}
+        type="text"
+        placeholder="País..."
+        onChange={handleChange}
+      />
+      <div className={style.buttons}>
+        <button
+          className={style.button}
+          type="submit"
+          onClick={() => onSearch(name)}
+        >
+          Buscar
+        </button>
+        <NavLink to={"/countries"}>
+          <button className={style.button} type="submit">
+            Ver todos los paises
+          </button>
+        </NavLink>
+        <NavLink to={"/countries"}>
+          <button className={style.button} type="submit">
+            sudamerica
+          </button>
+        </NavLink>
+        <NavLink to={"/registerAct"}>
+          <button className={style.button} type="submit">
+            subir actividad
+          </button>
+        </NavLink>
+        <NavLink to={"/activities"}>
+          <button className={style.button} type="submit">
+            Ver todas las actividades
+          </button>
+        </NavLink>
+      </div>
+      <div className={style.prevNext}>
+        <button className={style.button} onClick={goToPreviousPage}>
+          Anterior
+        </button>
+        {currentPage}/{totalPages}
+        <button className={style.button} onClick={goToNextPage}>
+          Siguiente
+        </button>
+      </div>
+      <div className={style.divCard}>{pais}</div>
     </div>
+    <div className={style.coso}>
+      <Countries />
+    </div>
+    </>
   );
 };
 
