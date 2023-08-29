@@ -34,7 +34,7 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case ORDER:
-      const newOrder = state.allCountries.sort((a, b) => {
+      const newOrder = state.countries.sort((a, b) => {
         if (action.payload === "A") {
           if (a.name < b.name) return -1;
           if (b.name < a.name) return 1;

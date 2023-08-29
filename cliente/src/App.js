@@ -9,18 +9,18 @@ import Register from "./components/Register/Register";
 import { FormAct } from "./components/FormAct/FormAct";
 import { Activities } from "./components/Activities/Activities";
 import { Countries } from "./components/Countries/Countries";
+import { Detail } from "./components/Detail/Detail";
 
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addCountries } from "./redux/action/ations";
 
-
 function App() {
-const dispatch = useDispatch()
-const countries = useSelector((state) => state.countries)
-const handleCountries = () => {
-  dispatch(addCountries())
-}
+  const dispatch = useDispatch();
+  const countries = useSelector((state) => state.countries);
+  const handleCountries = () => {
+    dispatch(addCountries());
+  };
 
   /////////////////////////////////////////////////////////////////////////////////////
   // LOGIN
@@ -38,7 +38,7 @@ const handleCountries = () => {
       // Seteo el acceso y si es true manda al home
       setAccess(access);
       access && navigate("/home");
-      handleCountries() && Countries()
+      handleCountries() && Countries();
     } catch (error) {
       window.alert("El usuario o la contraseña son incorrectos");
     }
@@ -46,22 +46,24 @@ const handleCountries = () => {
   /////////////////////////////////////////////////////////////////////////////////////
 
   // El useEffect hace q mientras el access = false se quede en '/' y no avance en la pagina
-  useEffect(() => {
+  /*   useEffect(() => {
     !access && navigate("/");
-  },[access]);
+  }, [access]); */
 
   // Conecto con el estado global
   // const countries = useSelector((state) => state.countries)
 
   return (
     <div className="App">
+      <div className="backImage"></div>
       <Routes>
-        <Route path="/home" element={<SearchBar/>} />
+        <Route path="/home" element={<SearchBar />} />
         <Route path="/" element={<Form login={login} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/registerAct" element={<FormAct />} />
-        <Route path="/countries" element={<Countries/>} />
-        <Route path="/activities" element={<Activities/>} />
+        <Route path="/countries" element={<Countries />} />
+        <Route path="/activities" element={<Activities />} />
+        <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </div>
   );

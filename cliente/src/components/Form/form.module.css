@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "coso"; /* Nombre de la fuente que usarás en tu hoja de estilos */
-  /* src: url("../../font/ClementePDaa-Hairline.ttf") format("opentype"); Ruta a tu archivo de fuente */
-  src: url("../../font/UniNeue-Trial-Regular.ttf") format("opentype"); /* Ruta a tu archivo de fuente */
-}
 
 .div {
   display: flex;
@@ -29,7 +24,7 @@
   font-size: xx-large;
   align-items: center;
   justify-content: center;
-  font-family: "coso";
+  font-family: 'fuenteCountry';
 }
 
 .input {
@@ -49,7 +44,7 @@
   background-color: black;
   color: white;
   border: transparent;
-  font-family: "coso";
+  font-family: 'fuenteCountry';
 }
 .button:hover {
   background-color: red;
@@ -58,9 +53,9 @@
   color: white;
   margin: 0.5rem;
   font-size: large;
-  font-family: "coso";
+  font-family: 'fuenteCountry';
 }
 .text {
   color: white;
-  font-family: "coso";
+  font-family: 'fuenteCountry';
 }

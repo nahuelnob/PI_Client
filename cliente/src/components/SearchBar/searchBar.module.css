@@ -12,6 +12,7 @@
   justify-content: center;
 }
 .input {
+  display: flex;
   width: 100%;
   height: 2rem;
   border-radius: 1rem;
@@ -34,7 +35,21 @@
   background-color: black;
   color: white;
   border: transparent;
-  font-family: "coso";
+  font-family: 'fuenteCountry';
+}
+.buttonBuscar {
+  width: 7rem;
+  height: 2.3rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: rgb(73, 50, 50);
+  color: white;
+  border: transparent;
+  font-family: 'fuenteCountry';
+}
+.buttonBuscar:focus{
+  .input{
+    display: none;
+  }
 }
 .button:hover {
   background-color: red;
@@ -48,12 +63,13 @@
   width: 16rem;
   order: 3;
   color: black;
-  font-family: "coso";
+  font-family: 'fuenteCountry';
 }
 
 .coso{
   position: absolute;
   left: 0rem;
-  width: 2rem;
-  background-color: aqua;
+  width: 10rem;
+  background-color: gray;
 }
+

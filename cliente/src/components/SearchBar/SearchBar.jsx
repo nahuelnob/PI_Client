@@ -6,7 +6,6 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import style from "./searchBar.module.css";
-import { useSelector } from "react-redux";
 import { Countries } from "../Countries/Countries";
 
 const Searchbar = () => {
@@ -96,7 +95,7 @@ const Searchbar = () => {
       />
       <div className={style.buttons}>
         <button
-          className={style.button}
+          className={style.buttonBuscar}
           type="submit"
           onClick={() => onSearch(name)}
         >

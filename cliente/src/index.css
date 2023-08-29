@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "fuenteCountry"; /* Nombre de la fuente que usarás en tu hoja de estilos */
+  src: url("./font/Jupiteroid-Regular.ttf") format("opentype"); /* Ruta a tu archivo de fuente */
+  /* src: url("./font/UniNeue-Trial-Regular.ttf") format("opentype"); Ruta a tu archivo de fuente */
+}

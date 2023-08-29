@@ -1,9 +1,70 @@
-.App{
+/* .App {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-image: url(https://img.freepik.com/fotos-premium/varias-banderas-paises_13339-286829.jpg?size=626&ext=jpg&ga=GA1.2.908157950.1692313965&semt=ais);
   background-size: cover;
-  max-width: 100%;
+  width: 100%;
+  height: 50rem;
+  animation: changeBackground 20s infinite;
+}
+
+.backImage{
+  filter: sepia(85%);
+}
+@keyframes changeBackground {
+  0%,
+  100% {
+    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/8396e1f4-2011-4182-8e22-bf2dd5966544_woman-libre-1200_default_0.webp);
+  }
+  
+  25% {
+    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/dfd574d4-8c6a-431c-948b-308a93e9f3a4_woman-libre-1200_default_0.webp);
+  }
+
+  50% {
+    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/5f246ece-301d-4619-a1ac-b78ebba7f2d7_woman-libre-1200_default_0.webp);
+  }
+  75% {
+    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/ba2de28e-37f8-420d-b9b0-cd9538439edc_woman-libre-1200_default_0.webp);
+  }
+} */
+.App {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   height: 50rem;
 }
+
+.App::before {
+  content:"";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://img.freepik.com/fotos-premium/varias-banderas-paises_13339-286829.jpg?size=626&ext=jpg&ga=GA1.2.908157950.1692313965&semt=ais);
+  background-size: cover;
+  /* filter: sepia(85%); */
+  filter:grayscale(90%);
+  /* animation: changeBackground 20s infinite; */
+  pointer-events: none;
+}
+
+/* @keyframes changeBackground {
+  0%, 100% {
+    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/8396e1f4-2011-4182-8e22-bf2dd5966544_woman-libre-1200_default_0.webp);
+  }
+  25% {
+    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/dfd574d4-8c6a-431c-948b-308a93e9f3a4_woman-libre-1200_default_0.webp);
+  }
+  50% {
+    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/5f246ece-301d-4619-a1ac-b78ebba7f2d7_woman-libre-1200_default_0.webp);
+  }
+  75% {
+    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/ba2de28e-37f8-420d-b9b0-cd9538439edc_woman-libre-1200_default_0.webp);
+  }
+} */

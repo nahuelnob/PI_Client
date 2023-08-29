@@ -1,0 +1,38 @@
+.div {
+  font-family: "fuenteCountry";
+}
+.buscar {
+  width: 7rem;
+  height: 2.3rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: black;
+  color: white;
+  border: transparent;
+  font-family: "fuenteCountry";
+}
+
+.button {
+  width: 7rem;
+  height: 2.3rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: black;
+  color: white;
+  border: transparent;
+  font-family: "fuenteCountry";
+}
+.buttonOrder {
+  background-color: transparent;
+  color: white;
+  border: transparent;
+  font-family: "fuenteCountry";
+}
+.pais {
+  font-family: "fuenteCountry";
+}
+.NavLink{
+    text-decoration: none;
+    color: blanchedalmond;
+}
+.NavLink:hover{
+    color: black;
+}
