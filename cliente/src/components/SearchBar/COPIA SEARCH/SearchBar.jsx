@@ -23,7 +23,7 @@ const Searchbar = () => {
   // Traigo el estado global
   const countries = useSelector((state) => state.countries);
 
-  ///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
   // PASAR DE PAGINAS | 10 x Pag
   const [currentPage, setCurrentPage] = useState(1);
   const cardsxPage = 10;
@@ -108,12 +108,7 @@ const Searchbar = () => {
       <div className={style.div}>
         <div className={style.buttons}>
           <NavLink to={"/home"}>
-            <img
-              className={style.homeButton}
-              src={iconoMundo}
-              alt="mundo"
-              height={60}
-            />
+            <img className={style.homeButton} src={iconoMundo} alt="mundo" height={60} />
           </NavLink>
           <input
             className={style.input}
@@ -140,6 +135,19 @@ const Searchbar = () => {
             </button>
           </NavLink>
         </div>
+        <div className={style.prevNext}>
+          <button className={style.button} onClick={goToPreviousPage}>
+            Anterior
+          </button>
+          {currentPage}/{totalPages}
+          <button className={style.button} onClick={goToNextPage}>
+            Siguiente
+          </button>
+        </div>
+        <div className={style.divCard}>{pais}</div>
+      </div>
+      <div className={style.coso}>
+        <Countries />
       </div>
     </>
   );

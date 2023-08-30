@@ -14,6 +14,7 @@ import { Detail } from "./components/Detail/Detail";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addCountries } from "./redux/action/ations";
+import { Home } from "./components/Home/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,13 @@ function App() {
     dispatch(addCountries());
   };
 
+  /////////////////////////////////////////////////////////////////////////////////////
+  const createBulkCountries = async () => {
+    const { response } = await axios.post(
+      `http://localhost:3001/countries/bulk`
+    );
+    return response;
+  };
   /////////////////////////////////////////////////////////////////////////////////////
   // LOGIN
   const [access, setAccess] = useState(false);
@@ -38,7 +46,7 @@ function App() {
       // Seteo el acceso y si es true manda al home
       setAccess(access);
       access && navigate("/home");
-      handleCountries() && Countries();
+      handleCountries()/*  && Countries() */;
     } catch (error) {
       window.alert("El usuario o la contraseña son incorrectos");
     }
@@ -46,9 +54,10 @@ function App() {
   /////////////////////////////////////////////////////////////////////////////////////
 
   // El useEffect hace q mientras el access = false se quede en '/' y no avance en la pagina
-  /*   useEffect(() => {
+  useEffect(() => {
+    createBulkCountries();
     !access && navigate("/");
-  }, [access]); */
+  }, [access]);
 
   // Conecto con el estado global
   // const countries = useSelector((state) => state.countries)
@@ -57,7 +66,8 @@ function App() {
     <div className="App">
       <div className="backImage"></div>
       <Routes>
-        <Route path="/home" element={<SearchBar />} />
+        {/* <Route path="/home" element={<SearchBar />} /> */}
+        <Route path="/home" element={<Home />} />
         <Route path="/" element={<Form login={login} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/registerAct" element={<FormAct />} />

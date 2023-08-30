@@ -13,10 +13,10 @@ export const Countries = () => {
 
   // Traigo el estado GLOBAL y lo defino
   const countries = useSelector((state) => state.countries);
+  // Traigo el estado GLOBAL y lo defino
   const [count, setCount] = useState(false);
-  console.log(count);
-  //Ver todos
-  const handleFavorite = () => {
+  // Reset
+  const handleReset = () => {
     dispatch(addCountries());
   };
   // Orden
@@ -27,7 +27,6 @@ export const Countries = () => {
   // Filtrado
   const handleFilter = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
     !count && setCount(true);
     count && setCount(false);
     dispatch(filterCards(e.target.value));
@@ -39,43 +38,19 @@ export const Countries = () => {
     return continent;
   });
   const pais = countries.map((pais) => {
-    const { name , id} = pais;
-    return <>
-    <NavLink className={style.NavLink}to={`/detail/${id}`}>
-    <p>{name}</p>
-    </NavLink>
-    
-    </>
+    const { name, id } = pais;
+    return (
+      <>
+        <NavLink className={style.NavLink} to={`/detail/${id}`}>
+          <p>{name}</p>
+        </NavLink>
+      </>
+    );
   });
 
   return (
     <div className={style.div}>
-      {/* IR A HOME */}
-      {/* <NavLink className={style.button} to={"/home"}>
-        <button type="submit">home</button>
-      </NavLink> */}
-
-      {/* MOSTRAR */}
-      {/* <button className={style.buscar} type="submit" onClick={handleFavorite}>
-        Buscar
-      </button> */}
-
-      {/* ORDEN */}
-      {/* <button className={style.button} onClick={handleOrder} value="A">
-        Ascendente
-      </button>
-      <button className={style.button} onClick={handleOrder} value="D">
-      Descendente
-      </button>
-      <select onChange={handleOrder} name="Order">
-      <option>Select order</option>
-      <option value="A">Ascendente</option>
-      <option value="D">Descendente</option>
-      <option value="PA">Poblacion Ascendente</option>
-        <option value="PD">Poblacion Descendente</option>
-      </select> */}
-
-      {/* FILTER */}
+      {/* ORDER */}
       <div className={style.order}>
         <button className={style.buttonOrder} onClick={handleOrder} value="D">
           Z - A
@@ -90,7 +65,15 @@ export const Countries = () => {
           menor POB
         </button>
       </div>
-      <div>
+
+      {/* FILTER */}
+      <div className={style.filter}>
+        <button className={style.button} onClick={handleReset} value="Reset">
+          Todos
+        </button>
+      </div>
+
+      <div className={style.filter}>
         <button
           className={style.button}
           onClick={handleFilter}
@@ -98,12 +81,14 @@ export const Countries = () => {
         >
           South America
         </button>
-        {count && countries.length < 250 && continente[0] === "South America"
-          ? pais
-          : null}
+        <div className={style.filterCountries}>
+          {count && countries.length < 250 && continente[0] === "South America"
+            ? pais
+            : null}
+        </div>
       </div>
 
-      <div>
+      <div className={style.filter}>
         <button
           className={style.button}
           onClick={handleFilter}
@@ -111,12 +96,14 @@ export const Countries = () => {
         >
           Antarctica
         </button>
-        {count && countries.length < 250 && continente[0] === "Antarctica"
-          ? pais
-          : null}
+        <div className={style.filterCountries}>
+          {count && countries.length < 250 && continente[0] === "Antarctica"
+            ? pais
+            : null}
+        </div>
       </div>
 
-      <div>
+      <div className={style.filter}>
         <button
           className={style.button}
           onClick={handleFilter}
@@ -124,59 +111,57 @@ export const Countries = () => {
         >
           North America
         </button>
-        {count && countries.length < 250 && continente[0] === "North America"
-          ? pais
-          : null}
+        <div className={style.filterCountries}>
+          {count && countries.length < 250 && continente[0] === "North America"
+            ? pais
+            : null}
+        </div>
       </div>
 
-      <div>
+      <div className={style.filter}>
         <button className={style.button} onClick={handleFilter} value="Oceania">
           Oceania
         </button>
-        {count && countries.length < 250 && continente[0] === "Oceania"
-          ? pais
-          : null}
+        <div className={style.filterCountries}>
+          {count && countries.length < 250 && continente[0] === "Oceania"
+            ? pais
+            : null}
+        </div>
       </div>
 
-      <div>
+      <div className={style.filter}>
         <button className={style.button} onClick={handleFilter} value="Europe">
           Europe
         </button>
-        {count && countries.length < 250 && continente[0] === "Europe"
-          ? pais
-          : null}
+        <div className={style.filterCountries}>
+          {count && countries.length < 250 && continente[0] === "Europe"
+            ? pais
+            : null}
+        </div>
       </div>
 
-      <div>
+      <div className={style.filter}>
         <button className={style.button} onClick={handleFilter} value="Africa">
           Africa
         </button>
-        {count && countries.length < 250 && continente[0] === "Africa"
-          ? pais
-          : null}
+        <div className={style.filterCountries}>
+          {count && countries.length < 250 && continente[0] === "Africa"
+            ? pais
+            : null}
+        </div>
       </div>
 
-      <div>
+      <div className={style.filter}>
         <button className={style.button} onClick={handleFilter} value="Asia">
           Asia
         </button>
-        {count && countries.length < 250 && continente[0] === "Asia"
-          ? pais
-          : null}
+        <div className={style.filterCountries}>
+          {count && countries.length < 250 && continente[0] === "Asia"
+            ? pais
+            : null}
+        </div>
       </div>
 
-      {/*       <select onChange={handleFilter} defaultValue={"DEFAULT"} name="Filter">
-        <option value="DEFAULT" disable>
-          Filtrado
-        </option>
-        <option value="South America">South America</option>
-        <option value="Antarctica">Antarctica</option>
-        <option value="North America">North America</option>
-        <option value="Oceania">Oceania</option>
-        <option value="Europe">Europe</option>
-        <option value="Africa">Africa</option>
-        <option value="Asia">Asia</option>
-      </select> */}
       <div className={style.pais}></div>
     </div>
   );

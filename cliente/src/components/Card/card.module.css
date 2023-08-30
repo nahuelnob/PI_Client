@@ -12,30 +12,33 @@
   align-items: center;
   justify-content: center;
   width: 9rem;
+  height: 9rem;
   /* height: 8rem; */
   overflow: hidden;
+  border-radius: 50%;
   /* box-shadow: 0px 10px 10px black; */
   filter: grayscale(35%) drop-shadow(0px 10px 10px black);
   margin: 0.5rem;
 }
 
 .containerImg:hover {
-  transform: scale(1.8);
+  transform: scale(1.5);
   transition: transform 0.4s ease;
   filter: grayscale(0%) drop-shadow(0px 10px 10px gray);
   z-index: 1;
+  /* border-radius: 0%; */
+  /* width: 12rem; */
 }
 .img {
-  width: 100%;
-  max-height: 7rem;
+  height: 9.5rem;
 }
 .text {
   display: none;
   color: black;
-  font-family: 'fuenteCountry';
+  font-family: "fuenteCountry";
 }
 .name {
   display: none;
   color: black;
-  font-family: 'fuenteCountry';
+  font-family: "fuenteCountry";
 }

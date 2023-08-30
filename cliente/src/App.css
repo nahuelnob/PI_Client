@@ -39,7 +39,7 @@
 }
 
 .App::before {
-  content:"";
+  content: "";
   position: absolute;
   z-index: -1;
   top: 0;
@@ -48,14 +48,15 @@
   height: 100%;
   background-image: url(https://img.freepik.com/fotos-premium/varias-banderas-paises_13339-286829.jpg?size=626&ext=jpg&ga=GA1.2.908157950.1692313965&semt=ais);
   background-size: cover;
-  /* filter: sepia(85%); */
-  filter:grayscale(90%);
+  filter: sepia(85%);
+  /* filter:grayscale(90%); */
   /* animation: changeBackground 20s infinite; */
   pointer-events: none;
 }
 
 /* @keyframes changeBackground {
-  0%, 100% {
+  0%,
+  100% {
     background-image: url(https://estaticos-cdn.prensaiberica.es/clip/8396e1f4-2011-4182-8e22-bf2dd5966544_woman-libre-1200_default_0.webp);
   }
   25% {

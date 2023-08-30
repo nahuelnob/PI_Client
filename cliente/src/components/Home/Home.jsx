@@ -10,8 +10,9 @@ import { Countries } from "../Countries/Countries";
 import { useSelector } from "react-redux";
 import iconoMundo from "../../img/mundo.png";
 import iconoLupa from "../../img/buscar.png";
+import Searchbar from "../SearchBar/SearchBar";
 
-const Searchbar = () => {
+export const Home = () => {
   // Estado local para setear el pais desde la DB
   const [country, setCountry] = useState([]);
   // Estado local para tomar el nombre desde el input
@@ -106,56 +107,21 @@ const Searchbar = () => {
   return (
     <>
       <div className={style.div}>
-        <div className={style.buttons}>
-          <NavLink to={"/home"}>
-            <img
-              className={style.homeButton}
-              src={iconoMundo}
-              alt="mundo"
-              height={60}
-            />
-          </NavLink>
-          <input
-            className={style.input}
-            type="text"
-            placeholder="País... 🔎"
-            onChange={handleChange}
-          />
-          <button
-            className={style.buttonBuscar}
-            type="submit"
-            onClick={() => onSearch(name)}
-          >
-            <img className={style.imgBuscar} src={iconoLupa} alt="lupa" />
+        <Searchbar onSearch={() => onSearch} />
+        <div className={style.prevNext}>
+          <button className={style.button} onClick={goToPreviousPage}>
+            Anterior
           </button>
-
-          <NavLink to={"/registerAct"}>
-            <button className={style.button} type="submit">
-              subir actividad
-            </button>
-          </NavLink>
-          <NavLink to={"/activities"}>
-            <button className={style.button} type="submit">
-              Ver todas las actividades
-            </button>
-          </NavLink>
+          {currentPage}/{totalPages}
+          <button className={style.button} onClick={goToNextPage}>
+            Siguiente
+          </button>
         </div>
+        <div className={style.divCard}>{pais}</div>
+      </div>
+      <div className={style.coso}>
+        <Countries />
       </div>
     </>
   );
 };
-
-export default Searchbar;
-
-//////////////////////////////////////////////////////////////////////////////////
-/*       <div className="body" style={{ backgroundColor: "grey" }}>
-            <p>{id} </p>
-            <p>{name} </p>
-            <img src={flags} alt="" />
-            <p>{continent}</p>
-            <p>{capital}</p>
-            <p>{subRegion}</p>
-            <p>area : {area} mts</p>
-            <p>poblacion : {population}</p>
-            <p>Actividades : {actividades}</p>
-          </div> */

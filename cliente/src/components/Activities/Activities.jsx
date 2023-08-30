@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addActivities } from "../../redux/action/ations";
+import Searchbar from "../SearchBar/SearchBar";
 
 export const Activities = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ export const Activities = () => {
         <div>
             {act}
         </div>
+        <Searchbar/>
       
     </div>
   );

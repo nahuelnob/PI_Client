@@ -1,4 +1,4 @@
-import { ADD_COUNTRIES, ADD_ACTIVITIES,  ORDER , FILTER} from "./types";
+import { ADD_COUNTRIES, ADD_ACTIVITIES,  ORDER , FILTER, /* RESET */} from "./types";
 import axios from "axios";
 
 
@@ -48,6 +48,7 @@ export const addActivities = () => {
 };
 
 //////////////////////////////////////////////////////////
+//* No lo use al final
 // export const reset = () => {
 //   return {
 //     type: RESET,

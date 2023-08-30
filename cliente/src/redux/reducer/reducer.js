@@ -1,4 +1,4 @@
-import { ADD_COUNTRIES , ORDER, FILTER, ADD_ACTIVITIES} from "../action/types";
+import { ADD_COUNTRIES , ORDER, FILTER, ADD_ACTIVITIES, /* RESET */} from "../action/types";
 
 export const initialState = {
   countries: [],
@@ -61,11 +61,11 @@ const rootReducer = (state = initialState, action) => {
         countries: [...newOrder],
       };
 
-    // case RESET:
-    //   return {
-    //     ...state,
-    //     myFavorites: [...state.allCharactersFav],
-    //   };
+/*     case RESET:
+      return {
+        ...state,
+        countries: [...state.allCountries],
+      }; */
 
     default:
       return { ...state };
