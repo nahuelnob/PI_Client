@@ -65,7 +65,7 @@ const Form = (props) => {
         <button type="submit" className={style.button}>
           Submit
         </button>
-        <p className={style.text}>
+        <p className={style.texto}>
           Si no estas registrado, hace click en Registrate
         </p>
         <NavLink to="/register">

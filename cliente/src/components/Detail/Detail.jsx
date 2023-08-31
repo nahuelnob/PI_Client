@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Searchbar from "../SearchBar/SearchBar";
+import style from "./detail.module.css";
 
 export const Detail = () => {
   const { id } = useParams();
@@ -17,10 +19,12 @@ export const Detail = () => {
     Activities,
   } = country;
 
-  const actividades = Activities ? Activities.map((act) => {
-    const { name } = act;
-    return <p>{name}</p>;
-  }) : null;
+  const actividades = Activities
+    ? Activities.map((act) => {
+        const { name } = act;
+        return <p>{name}</p>;
+      })
+    : null;
 
   useEffect(() => {
     axios(`http://localhost:3001/countries/${id}`).then(({ data }) => {
@@ -33,30 +37,33 @@ export const Detail = () => {
     });
     return setCountry({});
   }, [id]);
-
+  console.log(actividades);
   return (
-    <div>
-      <div>
-        <div>
-          <img src={flags} alt="" />
-        </div>
+    <>
+      <Searchbar />
+      <div className={style.div}>
+        <div className={style.contenedor}>
+          <div className={style.cont}>
+            <img className={style.flag} src={flags} alt={name} />
+            <h1>{name}</h1>
+          </div>
 
-        <div>
-          <h1></h1>
-          <br />
-          <div>
-            <p>ID | {id}</p>
-            <p>NAME | {name}</p>
-            <p>CONTINENT | {continent}</p>
-            <p>CAPITAL | {capital}</p>
-            <p>SUBREGION | {subRegion}</p>
-            <p>POBLACION | {population}</p>
-            <p>AREA | {area}</p>
-            <p>POBLACION | {population}</p>
-            <p>ACTIVIDADES | {actividades}</p>
+          <div className={style.info}>
+            <div>
+              <p>ID: {id}</p>
+              <p>CONTINENT: {continent}</p>
+              <p>CAPITAL: {capital ? capital : "S/D"}</p>
+              <p>SUBREGION: {subRegion ? subRegion : "S/D"}</p>
+              <p>POBLACION: {population ? population : "S/D"}</p>
+              <p>AREA: {area ? area : "S/D"} kms²</p>
+              <hr/>
+              <p>
+                ACTIVIDADES: {actividades?.length > 0 ? actividades : "S/D"}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

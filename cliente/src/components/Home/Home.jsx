@@ -1,24 +1,19 @@
 import axios from "axios";
 
-import { Card } from "../Card/Card";
-
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-
-import style from "./searchBar.module.css";
-import { Countries } from "../Countries/Countries";
 import { useSelector } from "react-redux";
-import iconoMundo from "../../img/mundo.png";
-import iconoLupa from "../../img/buscar.png";
+
+import { Card } from "../Card/Card";
+import { Countries } from "../Countries/Countries";
 import Searchbar from "../SearchBar/SearchBar";
 
+import style from "./home.module.css";
+
 export const Home = () => {
-  // Estado local para setear el pais desde la DB
+  // Estado local para setear el pais desde la DB y el input
   const [country, setCountry] = useState([]);
   // Estado local para tomar el nombre desde el input
   const [name, setName] = useState("");
-  console.log(name);
-  console.log("country", country);
 
   ///////////////////////////////////////////////////////////
   // Traigo el estado global
@@ -26,16 +21,20 @@ export const Home = () => {
 
   ///////////////////////////////////////////////////////////
   // PASAR DE PAGINAS | 10 x Pag
+  // Estado local para las paginas
   const [currentPage, setCurrentPage] = useState(1);
+
   const cardsxPage = 10;
   const startIndex = (currentPage - 1) * cardsxPage;
   const endIndex = startIndex + cardsxPage;
-  // const cardsx10 = countries.slice(startIndex, endIndex);
-  const cardsx10 =
+
+  // 10 paises x pag, depende si hay algo en el estado local
+  const paisesx10 =
     country.length === 0
       ? countries.slice(startIndex, endIndex)
       : country.slice(startIndex, endIndex);
 
+  // Total de paginas dependiendo de donde toma al pais
   const totalPages =
     country.length === 0
       ? Math.ceil(countries.length / cardsxPage)
@@ -57,6 +56,11 @@ export const Home = () => {
     setName("");
     setName(e.target.value);
   };
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      onSearch(name);
+    }
+  };
 
   const onSearch = async (name) => {
     try {
@@ -64,15 +68,13 @@ export const Home = () => {
       const { data } = await axios(
         `http://localhost:3001/countries?name=${name}`
       );
-
       setCountry(data);
     } catch (error) {
       window.alert(error.message);
     }
   };
-  // if (country.length === 0) onSearch(name);
 
-  const pais = cardsx10.map((pais) => {
+  const pais = paisesx10.map((pais) => {
     const {
       id,
       name,
@@ -107,7 +109,11 @@ export const Home = () => {
   return (
     <>
       <div className={style.div}>
-        <Searchbar onSearch={() => onSearch} />
+        <Searchbar />
+        {/* Paises */}
+        <div className={style.divCard}>{pais}</div>
+
+        {/* Botones para pasar pag */}
         <div className={style.prevNext}>
           <button className={style.button} onClick={goToPreviousPage}>
             Anterior
@@ -117,11 +123,21 @@ export const Home = () => {
             Siguiente
           </button>
         </div>
-        <div className={style.divCard}>{pais}</div>
       </div>
-      <div className={style.coso}>
+
+      {/* Barra Lateral */}
+      <div className={style.barraLateral}>
+        <input
+          className={style.input}
+          type="text"
+          placeholder="País... 🔎"
+          onChange={handleChange}
+          onKeyPress={handleKeyPress}
+        />
+
         <Countries />
       </div>
     </>
   );
 };
+

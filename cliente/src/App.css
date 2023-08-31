@@ -48,8 +48,8 @@
   height: 100%;
   background-image: url(https://img.freepik.com/fotos-premium/varias-banderas-paises_13339-286829.jpg?size=626&ext=jpg&ga=GA1.2.908157950.1692313965&semt=ais);
   background-size: cover;
-  filter: sepia(85%);
   /* filter:grayscale(90%); */
+  /* filter: sepia(85%); */
   /* animation: changeBackground 20s infinite; */
   pointer-events: none;
 }

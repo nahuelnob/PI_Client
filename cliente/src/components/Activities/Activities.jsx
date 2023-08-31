@@ -28,11 +28,11 @@ export const Activities = () => {
   });
   return (
     <div>
+        <Searchbar/>
       <button onClick={handleSeeAll}>buscar</button>
         <div>
             {act}
         </div>
-        <Searchbar/>
       
     </div>
   );

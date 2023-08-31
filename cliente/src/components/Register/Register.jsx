@@ -1,10 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import validation from "./validation";
 import { useState } from "react";
 import axios from "axios";
+import style from "./register.module.css";
+
 
 const Register = () => {
+  // Use navigate para redireccionar
   const navigate = useNavigate();
+
+  // Estado local para pasarle al post
   const [userData, setUserData] = useState({
     nombre: "",
     apellido: "",
@@ -12,6 +17,10 @@ const Register = () => {
     password: "",
   });
 
+  // Estado local para validar sin errores
+  const [err, setErr] = useState({});
+
+  // Funcion que se encarga del post
   const nwUser = async (user) => {
     try {
       await axios.post(`http://localhost:3001/user`, user);
@@ -21,16 +30,13 @@ const Register = () => {
       window.alert(error.message);
     }
   };
-
-  const [err, setErr] = useState({});
-  console.log('error en registrer ---> ', err);
-
+  // Funcion para setaear los estados locales
   const handleChange = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
     setErr(validation({ ...userData, [e.target.name]: e.target.value }));
   };
-  //nwUser(userData);
 
+  // Funcion que ejecuta el post
   const handleSubmit = (e) => {
     e.preventDefault();
     nwUser(userData);
@@ -38,27 +44,39 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <form>
-        <h1> Registrate </h1>
-        <label htmlFor="nombre"> Nombre </label>
+    <div className={style.div}>
+      <form className={style.form}>
+        <h1 className={style.titulo}> Registrate </h1>
+        <label className={style.label} htmlFor="nombre">
+          {" "}
+          Nombre{" "}
+        </label>
         <input
+          className={style.input}
           type="text"
           name="nombre"
           value={userData.nombre}
           placeholder="nombre..."
           onChange={handleChange}
         ></input>
-        <label htmlFor="apellido"> Apellido </label>
+        <label className={style.label} htmlFor="apellido">
+          {" "}
+          Apellido{" "}
+        </label>
         <input
+          className={style.input}
           type="text"
           name="apellido"
           value={userData.apellido}
           placeholder="apellido..."
           onChange={handleChange}
         ></input>
-        <label htmlFor="email"> Email </label>
+        <label className={style.label} htmlFor="email">
+          {" "}
+          Email{" "}
+        </label>
         <input
+          className={style.input}
           type="text"
           name="email"
           value={userData.email}
@@ -66,8 +84,12 @@ const Register = () => {
           onChange={handleChange}
         ></input>
         {/* <p style={{ color: "white" }}>{errors.email}</p> */}
-        <label htmlFor="password"> Password </label>
+        <label className={style.label} htmlFor="password">
+          {" "}
+          Password{" "}
+        </label>
         <input
+          className={style.input}
           type="password"
           name="password"
           placeholder="contraseña..."
@@ -75,10 +97,17 @@ const Register = () => {
           onChange={handleChange}
         ></input>
         {/* <p style={{ color: "white" }}>{errors.password}</p> */}
-        <button type="submit" onClick={handleSubmit}>
+        <button className={style.button} type="submit" onClick={handleSubmit}>
           {" "}
-          Submit{" "}
+          Regitrar{" "}
         </button>
+        <br />
+        <NavLink className={style.labelLog} to='/'>
+        <label>
+          Ingreso
+        </label>
+        </NavLink>
+
       </form>
     </div>
   );

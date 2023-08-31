@@ -24,6 +24,7 @@
   font-size: xx-large;
   align-items: center;
   justify-content: center;
+  /* font-family: 'fuenteCountry'; */
 }
 
 .input {
@@ -31,6 +32,7 @@
   height: 1.5rem;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   border-color: transparent;
+  text-transform:capitalize;
   text-indent: 1rem;
 }
 .input:hover {
@@ -55,10 +57,14 @@
   margin: 0.5rem;
   font-size: large;
 }
-.text {
+.labelLog {
+  margin-top: 30%;
   color: white;
+  font-size: medium;
+  text-decoration: none;
 }
-.texto {
-  color: white;
-  margin-top: 35%;
+.labelLog:hover {
+  color: black;
+  font-size: medium;
+  text-decoration: none;
 }

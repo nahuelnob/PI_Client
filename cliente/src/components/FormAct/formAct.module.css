@@ -1,0 +1,100 @@
+.fondo {
+  height: 100%;
+  width: 100%;
+  animation: changeBackground 20s infinite;
+  background-size: cover;
+  filter: sepia(50%);
+}
+
+.div {
+  display: flex;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30rem;
+  height: 35rem;
+  justify-content: center;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  filter: drop-shadow(0px 8px 8px black);
+  font-family: "fuenteCountry";
+  /* background-image: url(); */
+}
+.form {
+  position: relative;
+  display: flex;
+  margin-top: 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo {
+  color: white;
+  font-size: xx-large;
+  align-items: center;
+  justify-content: center;
+  /* font-family: "fuenteCountry"; */
+}
+
+.input {
+  width: 15rem;
+  height: 1.5rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-color: transparent;
+  text-indent: 1rem;
+}
+.input:hover {
+  color: black;
+  background-color: lightgray;
+}
+.inputCountry {
+  width: 15rem;
+  height: 1.5rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-color: transparent;
+  text-transform: uppercase;
+  text-indent: 1rem;
+}
+.inputCountry:hover {
+  color: black;
+  background-color: lightgray;
+}
+.button {
+  margin-top: 10%;
+  width: 7rem;
+  height: 2.3rem;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: black;
+  color: white;
+  border: transparent;
+  /* font-family: "fuenteCountry"; */
+}
+.button:hover {
+  background-color: red;
+}
+.label {
+  color: white;
+  margin: 0.5rem;
+  font-size: large;
+  /* font-family: "fuenteCountry"; */
+
+}
+.text {
+  color: white;
+}
+
+@keyframes changeBackground {
+  0%,
+  100% {
+    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/8396e1f4-2011-4182-8e22-bf2dd5966544_woman-libre-1200_default_0.webp);
+  }
+  25% {
+    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/dfd574d4-8c6a-431c-948b-308a93e9f3a4_woman-libre-1200_default_0.webp);
+  }
+  50% {
+    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/5f246ece-301d-4619-a1ac-b78ebba7f2d7_woman-libre-1200_default_0.webp);
+  }
+  75% {
+    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/ba2de28e-37f8-420d-b9b0-cd9538439edc_woman-libre-1200_default_0.webp);
+  }
+}
