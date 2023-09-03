@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 
 import style from "./searchBar.module.css";
 import iconoMundo from "../../img/mundo.png";
+// import iconoMundo from "../../img/earth-americas-solid.svg";
 
 const Searchbar = () => {
   return (

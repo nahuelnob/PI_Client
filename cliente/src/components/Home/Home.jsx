@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { Card } from "../Card/Card";
@@ -8,6 +8,7 @@ import { Countries } from "../Countries/Countries";
 import Searchbar from "../SearchBar/SearchBar";
 
 import style from "./home.module.css";
+import AdbIcon from "@mui/icons-material/Adb";
 
 export const Home = () => {
   // Estado local para setear el pais desde la DB y el input
@@ -22,10 +23,10 @@ export const Home = () => {
   ///////////////////////////////////////////////////////////
   // PASAR DE PAGINAS | 10 x Pag
   // Estado local para las paginas
-  const [currentPage, setCurrentPage] = useState(1);
+  const [paginaActual, setpaginaActual] = useState(1);
 
   const cardsxPage = 10;
-  const startIndex = (currentPage - 1) * cardsxPage;
+  const startIndex = (paginaActual - 1) * cardsxPage;
   const endIndex = startIndex + cardsxPage;
 
   // 10 paises x pag, depende si hay algo en el estado local
@@ -41,15 +42,12 @@ export const Home = () => {
       : Math.ceil(country.length / cardsxPage);
 
   const goToPreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
+    paginaActual > 1 && setpaginaActual(paginaActual - 1);
   };
 
   const goToNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
+    country.length !== 0 && setpaginaActual(totalPages);
+    paginaActual < totalPages && setpaginaActual(paginaActual + 1);
     ///////////////////////////////////////////////////////////
   };
   const handleChange = (e) => {
@@ -118,7 +116,8 @@ export const Home = () => {
           <button className={style.button} onClick={goToPreviousPage}>
             Anterior
           </button>
-          {currentPage}/{totalPages}
+          {paginaActual > totalPages ? totalPages : paginaActual}/{totalPages}
+          {/* {paginaActual}/{totalPages} */}
           <button className={style.button} onClick={goToNextPage}>
             Siguiente
           </button>
@@ -130,14 +129,13 @@ export const Home = () => {
         <input
           className={style.input}
           type="text"
-          placeholder="País... 🔎"
+          // placeholder="País... 🔎"
+          placeholder="Bucar país por nombre... 🔎"
           onChange={handleChange}
           onKeyPress={handleKeyPress}
         />
-
         <Countries />
       </div>
     </>
   );
 };
-

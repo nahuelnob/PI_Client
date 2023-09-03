@@ -22,6 +22,7 @@
   box-shadow: 0px 0px 50px rgb(0, 0, 0);
 }
 .cont {
+  background-color: aqua;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,5 +37,10 @@
   transition: transform 0.4s ease;
 }
 .info {
+  background-color: aquamarine;
+  font-size: large;
+}
+.act {
+  background-color: aquamarine;
   font-size: large;
 }

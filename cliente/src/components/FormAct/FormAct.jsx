@@ -56,6 +56,17 @@ export const FormAct = () => {
       <div className={style.fondo}>
         <Searchbar />
         <div className={style.div}>
+          <div
+            className={
+              activityData.season === "autumn"
+                ? style.div2
+                : activityData.season === "winter"
+                ? style.div2winter
+                : activityData.season === "spring"
+                ? style.div2spring
+                : style.div2summer
+            }
+          ></div>
           <form className={style.form}>
             <h1 className={style.titulo}> Subir Actividad </h1>
 
@@ -109,7 +120,6 @@ export const FormAct = () => {
               value={activityData.season}
               onChange={handleChange}
             >
-              <option value="default"></option>
               <option value="summer">Verano</option>
               <option value="autumn">Otoño</option>
               <option value="winter">Invierno</option>
@@ -138,7 +148,8 @@ export const FormAct = () => {
               {countries
                 .slice() // copio el array
                 .sort((a, b) => a.name.localeCompare(b.name)) // lo ordeno
-                .map((item) => { // lo mapeo y devuelvo uno nuevo
+                .map((item) => {
+                  // lo mapeo y devuelvo uno nuevo
                   const { id, name } = item;
                   return <option value={id}>{name}</option>;
                 })}
@@ -148,6 +159,7 @@ export const FormAct = () => {
               type="submit"
               onClick={handleSubmit}
             >
+              <i class="fa-solid fa-upload"></i>{" "}
               Subir
             </button>
           </form>

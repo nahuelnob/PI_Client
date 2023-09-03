@@ -56,7 +56,9 @@ export const Detail = () => {
               <p>SUBREGION: {subRegion ? subRegion : "S/D"}</p>
               <p>POBLACION: {population ? population : "S/D"}</p>
               <p>AREA: {area ? area : "S/D"} kms²</p>
-              <hr/>
+            </div>
+
+            <div className={style.act}>
               <p>
                 ACTIVIDADES: {actividades?.length > 0 ? actividades : "S/D"}
               </p>
