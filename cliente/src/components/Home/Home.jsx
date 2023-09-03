@@ -8,7 +8,6 @@ import { Countries } from "../Countries/Countries";
 import Searchbar from "../SearchBar/SearchBar";
 
 import style from "./home.module.css";
-import AdbIcon from "@mui/icons-material/Adb";
 
 export const Home = () => {
   // Estado local para setear el pais desde la DB y el input
@@ -106,35 +105,47 @@ export const Home = () => {
 
   return (
     <>
+      <Searchbar />
       <div className={style.div}>
-        <Searchbar />
         {/* Paises */}
-        <div className={style.divCard}>{pais}</div>
+        <div className={style.div2}>
+          <div className={style.divCard}>{pais}</div>
 
-        {/* Botones para pasar pag */}
-        <div className={style.prevNext}>
-          <button className={style.button} onClick={goToPreviousPage}>
-            Anterior
-          </button>
-          {paginaActual > totalPages ? totalPages : paginaActual}/{totalPages}
-          {/* {paginaActual}/{totalPages} */}
-          <button className={style.button} onClick={goToNextPage}>
-            Siguiente
-          </button>
+          {/* Botones para pasar pag */}
+          <div className={style.prevNext}>
+            <button className={style.button} onClick={goToPreviousPage}>
+              <i class="fa-solid fa-circle-chevron-left"></i> Anterior
+            </button>
+            {paginaActual > totalPages ? totalPages : paginaActual}/{totalPages}
+            {/* {paginaActual}/{totalPages} */}
+            <button className={style.button} onClick={goToNextPage}>
+              Siguiente <i class="fa-solid fa-circle-chevron-right"></i>
+            </button>
+          </div>
         </div>
-      </div>
 
-      {/* Barra Lateral */}
-      <div className={style.barraLateral}>
-        <input
-          className={style.input}
-          type="text"
-          // placeholder="País... 🔎"
-          placeholder="Bucar país por nombre... 🔎"
-          onChange={handleChange}
-          onKeyPress={handleKeyPress}
-        />
-        <Countries />
+        {/* Barra Lateral */}
+        <div className={style.div3}>
+          <div className={style.lateral}>
+            <input
+              className={style.input}
+              type="text"
+              placeholder="Bucar país por nombre..."
+              onChange={handleChange}
+              onKeyPress={handleKeyPress}
+            />
+            <i
+              className="fa-solid fa-magnifying-glass"
+              style={{
+                position: "absolute",
+                top: 25,
+                right: 40,
+                color: "grey",
+              }}
+            ></i>
+            <Countries />
+          </div>
+        </div>
       </div>
     </>
   );

@@ -52,10 +52,10 @@
   /* background-image: url(https://img.freepik.com/fotos-premium/banderas-paises-miembros-otan-banderas-miembros-otan-cumbre-otan_220166-89.jpg?w=900); */
   /* background-image: url(https://img.freepik.com/fotos-premium/ilustraciones-dia-mundial-poblacion-generadas-partir-mapas-composicion-poblaciongenerados-ia_919582-2468.jpg?w=900); */
   /* background-image: url(https://img.freepik.com/fotos-premium/globo-luminoso-contra-telon-fondo-ciudad-noche-ia-generativa_935190-215.jpg?w=900); */
-  background-image: url('../src/img/inicio.avif');
+  background-image: url("../src/img/inicio.avif");
   background-size: cover;
   background-position: center;
-  filter:grayscale(50%);
+  filter: grayscale(50%);
   /* filter: sepia(85%); */
   /* animation: changeBackground 10s infinite; */
   pointer-events: none;
@@ -76,3 +76,39 @@
     background-image: url('../src/img/cañon.webp');
   }
 } */
+input {
+  background-color: cornsilk;
+  font-family: "fuenteCountry";
+  font-size: 16px;
+}
+input:hover {
+  color: black;
+  background-color: lightgray;
+}
+option {
+  background-color: cornsilk;
+  font-family: "fuenteCountry";
+  font-size: 16px;
+}
+select {
+  background-color: cornsilk;
+  font-family: "fuenteCountry";
+  font-size: 16px;
+}
+button {
+  width: 7rem;
+  height: 2rem;
+  background-color: transparent;
+  color: cornsilk;
+  border: transparent;
+  font-size: medium;
+  font-family: "fuenteCountry";
+}
+button:hover {
+  transform: scale(1.2);
+  transition: transform 0.5s ease;
+  color: lightgray;
+}
+i{
+  color:dodgerblue
+}

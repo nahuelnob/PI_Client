@@ -1,47 +1,40 @@
 .div {
   margin-top: 1rem;
+  /* background-color: rgba(0, 0, 0, 0.8); */
+  border-radius: 1rem 1rem 1rem 1rem;
   font-family: "fuenteCountry";
+  font-size: large;
+  color: cornsilk;
+  height: 30rem;
+  min-height: 30rem;
+  width: 15rem;
 }
-/* Order */
+/* .titulo {
+  color: rgb(10, 10, 10);
+} */
+
 .order {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.buttonFilterOrder {
-  background-color: transparent;
-  color: white;
-  border: transparent;
-  font-family: "fuenteCountry";
-}
-.buttonFilterOrder:hover {
-  color: black;
-}
-
-/* Filter */
-.filter {
-  margin-left: 0%;
-}
-
-.buttonFilter {
   width: 100%;
-  height: 2.3rem;
-  margin-top: 1rem;
-  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
-  background-color: transparent;
-  color: black;
-  border: transparent;
-  font-size: large;
-  font-family: "fuenteCountry";
-}
-.buttonFilter:hover {
-  color: white;
+  align-items:start;
+  .buttonOrder{
+    width: fit-content;
+    height: 2rem;
+    font-size: large;
+  }
 }
 
-/* Para Cuando aparecian los paises al tocar el botor del continente  */
-/* .filterCountries{
-    max-height: 20rem;
-    overflow-y: scroll;
-    scrollbar-color: red;
-} */
+.filter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: start;
+  .buttonFilter {
+    width: fit-content;
+    height: 2rem;
+    font-size: large;
+  }
+}
+
+

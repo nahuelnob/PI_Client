@@ -26,7 +26,7 @@
   height: 100%;
 }
 .div2summer {
-  filter: sepia(50%);
+  /* filter: sepia(50%); */
   border-radius: 1rem 0rem 0rem 1rem;
   animation: changeBackgroundSummer 10s infinite;
   background-size: cover;
@@ -36,7 +36,7 @@
   height: 100%;
 }
 .div2winter {
-  filter: sepia(50%);
+  /* filter: sepia(50%); */
   border-radius: 1rem 0rem 0rem 1rem;
   animation: changeBackgroundWinter 10s infinite;
   background-size: cover;
@@ -46,7 +46,7 @@
   height: 100%;
 }
 .div2spring {
-  filter: sepia(50%);
+  /* filter: sepia(50%); */
   border-radius: 1rem 0rem 0rem 1rem;
   animation: changeBackgroundSpring 10s infinite;
   background-size: cover;
@@ -67,7 +67,7 @@
 }
 
 .titulo {
-  color: white;
+  color: cornsilk;
   font-size: xx-large;
   align-items: center;
   justify-content: center;
@@ -81,44 +81,45 @@
   border-color: transparent;
   text-indent: 1rem;
 }
-.input:hover {
-  color: black;
-  background-color: lightgray;
-}
-.inputCountry {
+
+.inputSelect {
   width: 15rem;
-  height: 1.5rem;
+  height: 1.8rem;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
-  border-color: transparent;
-  text-transform: uppercase;
+
   text-indent: 1rem;
 }
-.inputCountry:hover {
-  color: black;
-  background-color: lightgray;
-}
+
+
 .button {
-  margin-top: 10%;
-  width: 7rem;
-  height: 2.3rem;
-  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
-  background-color: black;
-  color: white;
-  border: transparent;
-  /* font-family: "fuenteCountry"; */
+  margin-bottom: 2rem;
+  height: 2rem;
+  font-size: large;
+
 }
-.button:hover {
-  background-color: red;
-}
+
 .label {
-  color: white;
+  color: cornsilk;
   margin: 0.5rem;
   font-size: large;
-  /* font-family: "fuenteCountry"; */
+
 }
-.text {
+
+.labelAndInput {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.1rem;
+}
+
+.span{
+  display: flex;
   color: white;
+  justify-content: center ;
+  font-size: large;
+
 }
+
 
 @keyframes changeBackground {
   0%,

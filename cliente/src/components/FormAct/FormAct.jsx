@@ -69,7 +69,7 @@ export const FormAct = () => {
           ></div>
           <form className={style.form}>
             <h1 className={style.titulo}> Subir Actividad </h1>
-
+            <div className={style.labelAndInput}>
             <label className={style.label} htmlFor="name">
               {" "}
               Nombre{" "}
@@ -81,10 +81,12 @@ export const FormAct = () => {
               value={activityData.name}
               placeholder="nombre..."
               onChange={handleChange}
-            ></input>
+              ></input>
+              </div>
+              <div className={style.labelAndInput}>
             <label className={style.label} htmlFor="difficulty">
               {" "}
-              difficulty <br />1 - 2 - 3 - 4 - 5
+              difficulty <br />
             </label>
             <input
               className={style.input}
@@ -96,7 +98,10 @@ export const FormAct = () => {
               onChange={handleChange}
               max={5}
               min={1}
-            ></input>
+              ></input>
+              <span className={style.span}>1 - 2 - 3 - 4 - 5</span>
+              </div>
+              <div className={style.labelAndInput}>
             <label className={style.label} htmlFor="duration">
               {" "}
               duration{" "}
@@ -108,23 +113,27 @@ export const FormAct = () => {
               value={activityData.duration}
               placeholder="ingrese su duration..."
               onChange={handleChange}
-            ></input>
+              ></input>
+              </div>
+              <div className={style.labelAndInput}>
             <label className={style.label} htmlFor="season">
               {" "}
               season{" "}
             </label>
 
             <select
-              className={style.input}
+              className={style.inputSelect}
               name="season"
               value={activityData.season}
               onChange={handleChange}
-            >
+              >
               <option value="summer">Verano</option>
               <option value="autumn">Otoño</option>
               <option value="winter">Invierno</option>
               <option value="spring">Primavera</option>
             </select>
+              </div>
+              <div className={style.labelAndInput}>
             <label className={style.label} htmlFor="country">
               {" "}
               country{" "}
@@ -139,12 +148,12 @@ export const FormAct = () => {
               onChange={handleChange}
             ></input> */}
             <select
-              className={style.input}
+              className={style.inputSelect}
               name="country"
               value={activityData.country}
               id=""
               onChange={handleChange}
-            >
+              >
               {countries
                 .slice() // copio el array
                 .sort((a, b) => a.name.localeCompare(b.name)) // lo ordeno
@@ -154,6 +163,7 @@ export const FormAct = () => {
                   return <option value={id}>{name}</option>;
                 })}
             </select>
+            </div>
             <button
               className={style.button}
               type="submit"

@@ -42,7 +42,7 @@ export const Countries = () => {
     return (
       <>
         <NavLink className={style.NavLink} to={`/detail/${id}`}>
-          <p>{name}</p>
+          {name}
         </NavLink>
       </>
     );
@@ -50,14 +50,45 @@ export const Countries = () => {
 
   return (
     <div className={style.div}>
+      {/* ORDER */}
+      <div className={style.order}>
+      <h3 className={style.titulo}>Ordenar</h3>
+        <div>
+          <button className={style.buttonOrder} onClick={handleOrder} value="A">
+            País <i class="fa-solid fa-arrow-down-a-z"></i>
+          </button>
+          <button className={style.buttonOrder} onClick={handleOrder} value="D">
+            País <i class="fa-solid fa-arrow-down-z-a"></i>
+          </button>
+        </div>
+
+        <div>
+          <button
+            className={style.buttonOrder}
+            onClick={handleOrder}
+            value="PD"
+          >
+            Pob <i class="fa-solid fa-arrow-down-wide-short"></i>
+          </button>
+          <button
+            className={style.buttonOrder}
+            onClick={handleOrder}
+            value="PA"
+          >
+            Pob <i class="fa-solid fa-arrow-down-short-wide"></i>
+          </button>
+        </div>
+      </div>
+      <hr />
       {/* FILTER */}
       <div className={style.filter}>
+        <h3 className={style.titulo}>Buscar por continentes</h3>
         <button
           className={style.buttonFilter}
           onClick={handleReset}
           value="Reset"
         >
-          Todos
+          Todos los países <i class="fa-solid fa-map" onClick={handleReset}></i>
         </button>
       </div>
 
@@ -67,58 +98,8 @@ export const Countries = () => {
           onClick={handleFilter}
           value="Africa"
         >
-          Africa
+          África <i class="fa-solid fa-earth-africa"></i>
         </button>
-        <div className={style.filterCountries}>
-          {/* {count && countries.length < 250 && continente[0] === "Africa"
-            ? pais
-            : null} */}
-        </div>
-      </div>
-
-      <div className={style.filter}>
-        <button
-          className={style.buttonFilter}
-          onClick={handleFilter}
-          value="Antarctica"
-        >
-          Antarctica
-        </button>
-        <div className={style.filterCountries}>
-          {/* {count && countries.length < 250 && continente[0] === "Antarctica"
-            ? pais
-            : null} */}
-        </div>
-      </div>
-
-      <div className={style.filter}>
-        <button
-          className={style.buttonFilter}
-          onClick={handleFilter}
-          value="Asia"
-        >
-          Asia
-        </button>
-        <div className={style.filterCountries}>
-          {/* {count && countries.length < 250 && continente[0] === "Asia"
-            ? pais
-            : null} */}
-        </div>
-      </div>
-
-      <div className={style.filter}>
-        <button
-          className={style.buttonFilter}
-          onClick={handleFilter}
-          value="Europe"
-        >
-          Europe
-        </button>
-        <div className={style.filterCountries}>
-          {/* {count && countries.length < 250 && continente[0] === "Europe"
-            ? pais
-            : null} */}
-        </div>
       </div>
 
       <div className={style.filter}>
@@ -127,28 +108,8 @@ export const Countries = () => {
           onClick={handleFilter}
           value="North America"
         >
-          North America
+          América del Norte <i class="fa-solid fa-earth-americas"></i>
         </button>
-        <div className={style.filterCountries}>
-          {/* {count && countries.length < 250 && continente[0] === "North America"
-            ? pais
-            : null} */}
-        </div>
-      </div>
-
-      <div className={style.filter}>
-        <button
-          className={style.buttonFilter}
-          onClick={handleFilter}
-          value="Oceania"
-        >
-          Oceania
-        </button>
-        <div className={style.filterCountries}>
-          {/* {count && countries.length < 250 && continente[0] === "Oceania"
-            ? pais
-            : null} */}
-        </div>
       </div>
 
       <div className={style.filter}>
@@ -157,51 +118,85 @@ export const Countries = () => {
           onClick={handleFilter}
           value="South America"
         >
-          South America
+          Ámerica del Sur <i class="fa-solid fa-earth-americas"></i>
         </button>
-        <div className={style.filterCountries}>
-          {/* {count && countries.length < 250 && continente[0] === "South America"
-            ? pais
-            : null} */}
-        </div>
+      </div>
+
+      <div className={style.filter}>
+        <button
+          className={style.buttonFilter}
+          onClick={handleFilter}
+          value="Antarctica"
+        >
+          Antártida <i class="fa-solid fa-earth-oceania"></i>
+        </button>
+      </div>
+
+      <div className={style.filter}>
+        <button
+          className={style.buttonFilter}
+          onClick={handleFilter}
+          value="Asia"
+        >
+          Asia <i class="fa-solid fa-earth-asia"></i>
+        </button>
+      </div>
+
+      <div className={style.filter}>
+        <button
+          className={style.buttonFilter}
+          onClick={handleFilter}
+          value="Europe"
+        >
+          Europa <i class="fa-solid fa-earth-europe"></i>
+        </button>
+      </div>
+
+      <div className={style.filter}>
+        <button
+          className={style.buttonFilter}
+          onClick={handleFilter}
+          value="Oceania"
+        >
+          Oceania <i class="fa-solid fa-earth-oceania"></i>
+        </button>
       </div>
 
       {/* ORDER */}
-      <div className={style.order}>
+      {/* <div className={style.order}>
         <div>
           <button
-            className={style.buttonFilterOrder}
+            className={style.buttonOrder}
             onClick={handleOrder}
             value="A"
           >
-            A - Z ↓
+            <i class="fa-solid fa-arrow-down-a-z"></i>
           </button>
           <button
-            className={style.buttonFilterOrder}
+            className={style.buttonOrder}
             onClick={handleOrder}
             value="D"
           >
-            Z - A ↓
+            <i class="fa-solid fa-arrow-down-z-a"></i>
           </button>
         </div>
-        <br></br>
         <div>
           <button
-            className={style.buttonFilterOrder}
+            className={style.buttonOrder}
             onClick={handleOrder}
             value="PD"
           >
-            mayor POB ↓
+            pop <i class="fa-solid fa-arrow-down-wide-short"></i>
           </button>
           <button
-            className={style.buttonFilterOrder}
+            className={style.buttonOrder}
             onClick={handleOrder}
             value="PA"
           >
-            menor POB ↓
+            pop <i class="fa-solid fa-arrow-down-short-wide"></i>
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

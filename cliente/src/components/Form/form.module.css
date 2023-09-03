@@ -35,7 +35,7 @@
 
 .titulo {
   margin-top: 2rem;
-  color: white;
+  color: cornsilk;
   font-size: xx-large;
   align-items: center;
   justify-content: center;
@@ -54,28 +54,13 @@
   border-color: transparent;
   text-indent: 1rem;
 }
-.input:hover {
-  color: black;
-  background-color: lightgray;
-}
+
 .button {
   position: absolute;
   bottom: 10rem;
   margin-right: 12%;
-  /* border-radius: 0.5rem; */
-  width: 7rem;
-  height: 2rem;
-  background-color: transparent;
-  /* background-color: rgb(49, 49, 49); */
-  color: white;
-  border: transparent;
-  font-size: medium;
 }
-.button:hover {
-  transform: scale(1.2);
-  transition: transform 0.5s ease;
-  color: gray;
-}
+
 .label {
   color: white;
   margin: 0.5rem;
@@ -89,7 +74,6 @@
   justify-content: center;
 }
 .texto {
-  color: white;
+  color: cornsilk;
   margin-top: 32%;
 }
-
