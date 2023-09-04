@@ -33,32 +33,17 @@ export const Countries = () => {
   };
   ///////////////////////////////////////////////////////
 
-  const continente = countries.map((pais) => {
-    const { continent } = pais;
-    return continent;
-  });
-  const pais = countries.map((pais) => {
-    const { name, id } = pais;
-    return (
-      <>
-        <NavLink className={style.NavLink} to={`/detail/${id}`}>
-          {name}
-        </NavLink>
-      </>
-    );
-  });
-
   return (
     <div className={style.div}>
       {/* ORDER */}
       <div className={style.order}>
-      <h3 className={style.titulo}>Ordenar</h3>
+        <h3 className={style.titulo}>Ordenar</h3>
         <div>
           <button className={style.buttonOrder} onClick={handleOrder} value="A">
-            País <i class="fa-solid fa-arrow-down-a-z"></i>
+            <i class="fa-solid fa-arrow-down-a-z" /> País
           </button>
           <button className={style.buttonOrder} onClick={handleOrder} value="D">
-            País <i class="fa-solid fa-arrow-down-z-a"></i>
+            <i class="fa-solid fa-arrow-down-z-a" /> País
           </button>
         </div>
 
@@ -68,14 +53,14 @@ export const Countries = () => {
             onClick={handleOrder}
             value="PD"
           >
-            Pob <i class="fa-solid fa-arrow-down-wide-short"></i>
+            <i class="fa-solid fa-arrow-down-wide-short" /> Pob
           </button>
           <button
             className={style.buttonOrder}
             onClick={handleOrder}
             value="PA"
           >
-            Pob <i class="fa-solid fa-arrow-down-short-wide"></i>
+            <i class="fa-solid fa-arrow-down-short-wide" /> Pob
           </button>
         </div>
       </div>
@@ -88,7 +73,7 @@ export const Countries = () => {
           onClick={handleReset}
           value="Reset"
         >
-          Todos los países <i class="fa-solid fa-map" onClick={handleReset}></i>
+          <i class="fa-solid fa-map" /> Todos los continentes
         </button>
       </div>
 
@@ -98,7 +83,7 @@ export const Countries = () => {
           onClick={handleFilter}
           value="Africa"
         >
-          África <i class="fa-solid fa-earth-africa"></i>
+          <i class="fa-solid fa-earth-africa" /> África
         </button>
       </div>
 
@@ -108,7 +93,7 @@ export const Countries = () => {
           onClick={handleFilter}
           value="North America"
         >
-          América del Norte <i class="fa-solid fa-earth-americas"></i>
+          <i class="fa-solid fa-earth-americas" /> América del Norte
         </button>
       </div>
 
@@ -118,7 +103,7 @@ export const Countries = () => {
           onClick={handleFilter}
           value="South America"
         >
-          Ámerica del Sur <i class="fa-solid fa-earth-americas"></i>
+          <i class="fa-solid fa-earth-americas" /> Ámerica del Sur
         </button>
       </div>
 
@@ -128,7 +113,7 @@ export const Countries = () => {
           onClick={handleFilter}
           value="Antarctica"
         >
-          Antártida <i class="fa-solid fa-earth-oceania"></i>
+          <i class="fa-solid fa-earth-oceania" /> Antártida
         </button>
       </div>
 
@@ -138,7 +123,7 @@ export const Countries = () => {
           onClick={handleFilter}
           value="Asia"
         >
-          Asia <i class="fa-solid fa-earth-asia"></i>
+          <i class="fa-solid fa-earth-asia" /> Asia
         </button>
       </div>
 
@@ -148,7 +133,7 @@ export const Countries = () => {
           onClick={handleFilter}
           value="Europe"
         >
-          Europa <i class="fa-solid fa-earth-europe"></i>
+          <i class="fa-solid fa-earth-europe" /> Europa
         </button>
       </div>
 
@@ -158,7 +143,7 @@ export const Countries = () => {
           onClick={handleFilter}
           value="Oceania"
         >
-          Oceania <i class="fa-solid fa-earth-oceania"></i>
+          <i class="fa-solid fa-earth-oceania" /> Oceania
         </button>
       </div>
 
@@ -170,14 +155,14 @@ export const Countries = () => {
             onClick={handleOrder}
             value="A"
           >
-            <i class="fa-solid fa-arrow-down-a-z"></i>
+            <i class="fa-solid fa-arrow-down-a-z"/>
           </button>
           <button
             className={style.buttonOrder}
             onClick={handleOrder}
             value="D"
           >
-            <i class="fa-solid fa-arrow-down-z-a"></i>
+            <i class="fa-solid fa-arrow-down-z-a"/>
           </button>
         </div>
         <div>
@@ -186,14 +171,14 @@ export const Countries = () => {
             onClick={handleOrder}
             value="PD"
           >
-            pop <i class="fa-solid fa-arrow-down-wide-short"></i>
+            pop <i class="fa-solid fa-arrow-down-wide-short"/>
           </button>
           <button
             className={style.buttonOrder}
             onClick={handleOrder}
             value="PA"
           >
-            pop <i class="fa-solid fa-arrow-down-short-wide"></i>
+            pop <i class="fa-solid fa-arrow-down-short-wide"/>
           </button>
         </div>
       </div> */}

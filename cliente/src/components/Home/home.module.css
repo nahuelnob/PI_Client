@@ -5,8 +5,6 @@
   height: 35rem;
   margin-top: 3rem;
   filter: drop-shadow(0px 8px 8px black);
-  /* font-family: "fuenteCountry"; */
-
 }
 
 .div2 {
@@ -27,7 +25,7 @@
   }
   .prevNext {
     position: relative;
-    top: 10%;
+    top: 13%;
     left: 35%;
     display: flex;
     align-items: center;
@@ -43,9 +41,8 @@
 .div3 {
   width: 25%;
   height: 100%;
-  background-position: center;
-  background-size: cover;
   background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 0rem 1rem 1rem 0rem;
  
   .lateral {
     flex-direction: column;
@@ -62,18 +59,3 @@
     }
   }
 }
-
-/* .div3::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  border-radius: 0rem 1rem 1rem 0rem;
-  width: 25%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  background-image: url("../../img/varias-banderas.avif");
-  background-size: cover;
-  background-position: center;
-  filter: sepia(80%);
-  pointer-events: none;
-} */

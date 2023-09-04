@@ -1,9 +1,6 @@
 .div {
   display: flex;
   margin-top: 3rem;
-  /* margin-left: auto;
-  margin-right: auto; */
-  /* justify-content: center; */
   width: 70%;
   height: 35rem;
   filter: drop-shadow(0px 8px 8px black);
@@ -14,9 +11,6 @@
   width: 55%;
   height: 100%;
   border-radius: 1rem 0rem 0rem 1rem;
-  /* background-color: antiquewhite; */
-
-  /* background-image: url('../../img/inicio.avif'); */
   background-image: url("../../img/varias-banderas.avif");
   background-position: center;
   background-size: cover;
@@ -24,7 +18,6 @@
 }
 .form {
   width: 45%;
-  height: 100%;
   /* background-color: red; */
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 0rem 1rem 1rem 0rem;
@@ -74,6 +67,6 @@
   justify-content: center;
 }
 .texto {
-  color: cornsilk;
-  margin-top: 32%;
+  color: gray;
+  margin-top: 33%;
 }

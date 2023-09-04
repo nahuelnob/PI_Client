@@ -2,8 +2,7 @@ import "./App.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import SearchBar from "./components/SearchBar/SearchBar";
-import Form from "./components/Form/Form";
+import { Form } from "./components/Form/Form";
 import Register from "./components/Register/Register";
 
 import { FormAct } from "./components/FormAct/FormAct";
@@ -12,13 +11,13 @@ import { Countries } from "./components/Countries/Countries";
 import { Detail } from "./components/Detail/Detail";
 
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addCountries } from "./redux/action/ations";
 import { Home } from "./components/Home/Home";
 
 function App() {
   const dispatch = useDispatch();
-  const countries = useSelector((state) => state.countries);
+
   const handleCountries = () => {
     dispatch(addCountries());
   };
@@ -46,7 +45,7 @@ function App() {
       // Seteo el acceso y si es true manda al home
       setAccess(access);
       access && navigate("/home");
-      handleCountries()/*  && Countries() */;
+      handleCountries() /*  && Countries() */;
     } catch (error) {
       window.alert("El usuario o la contraseña son incorrectos");
     }
@@ -66,7 +65,6 @@ function App() {
     <div className="App">
       <div className="backImage"></div>
       <Routes>
-        {/* <Route path="/home" element={<SearchBar />} /> */}
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Form login={login} />} />
         <Route path="/register" element={<Register />} />

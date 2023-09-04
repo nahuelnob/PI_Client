@@ -3,14 +3,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background-color: rgba(10, 10, 10, 0.5); */
+  font-family: "fuenteCountry";
   border-radius: 3rem;
 }
 
 .containerImg {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   width: 9rem;
   height: 9rem;
   overflow: hidden;
@@ -20,6 +21,7 @@
 }
 
 .containerImg:hover{
+  filter: grayscale(0%);
   overflow:visible;
   z-index: 1;
 }  
@@ -30,12 +32,15 @@
 .img:hover {
   transform: scale(1.25);
   transition: ease 0.5s;
+  border-radius: 1rem 1rem 1rem 1rem;
 }
 .text {
   display: none;
 }
+
+
 .name {
-  display: none;
-  color: black;
-  font-family: "fuenteCountry";
-}
+  color: cornsilk;
+  max-width: 200%;
+  filter: drop-shadow(1px 1px 3px black);
+} 

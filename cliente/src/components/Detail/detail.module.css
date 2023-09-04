@@ -1,46 +1,73 @@
 .div {
-  width: 80%;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: 35rem;
+  margin-top: 3rem;
+  filter: drop-shadow(0px 8px 8px black);
+  font-family: "fuenteCountry";
+  color: cornsilk;
+}
+.contenedor {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 1rem 0rem 0rem 1rem;
+  width: 75%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  /* top: -17rem; */
-  font-family: "fuenteCountry";
+  justify-content: end;
+
+  .contImg {
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .flag {
+      max-height: 20rem;
+      height: 18rem;
+      border-radius: 1rem 1rem 1rem 1rem;
+      filter: drop-shadow(0px 20px 10px black);
+    }
+    .flag:hover {
+      transform: scale(1.1);
+      transition: transform 0.4s ease;
+    }
+  }
+  .contAct {
+    height: 12%;
+    max-height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    text-indent: 2.5rem;
+    .act{
+      text-indent: 1rem;
+      width: 80%;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+  }
 }
-.contenedor {
-  border-radius: 1rem 1rem 1rem 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
-  width: 80%;
-  height: 75%;
-  background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0px 0px 50px rgb(0, 0, 0);
-}
-.cont {
-  background-color: aqua;
+.contenedor2 {
+  width: 25%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* background-color: brown; */
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.flag {
-  max-height: 18rem;
-  border-radius: 1rem 1rem 1rem 1rem;
-  filter: drop-shadow(0px 20px 10px black);
-}
-.flag:hover {
-  transform: scale(1.1);
-  transition: transform 0.4s ease;
-}
-.info {
-  background-color: aquamarine;
-  font-size: large;
-}
-.act {
-  background-color: aquamarine;
-  font-size: large;
+  border-radius: 0rem 1rem 1rem 0rem;
+  
+  .titulo {
+    margin-top: 52%;
+    text-align: left;
+  }
+  .info {
+    width: 15rem;
+    height: 75%;
+    font-size: large;
+  }
 }

@@ -1,4 +1,4 @@
-import { ADD_COUNTRIES , ORDER, FILTER, ADD_ACTIVITIES, /* RESET */} from "../action/types";
+import { ADD_COUNTRIES, ORDER, FILTER, ADD_ACTIVITIES } from "../action/types";
 
 export const initialState = {
   countries: [],
@@ -9,7 +9,6 @@ export const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    
     case ADD_COUNTRIES:
       return {
         ...state,
@@ -23,7 +22,6 @@ const rootReducer = (state = initialState, action) => {
         activities: action.payload,
         allActivities: action.payload,
       };
-
 
     case FILTER:
       return {
@@ -61,7 +59,7 @@ const rootReducer = (state = initialState, action) => {
         countries: [...newOrder],
       };
 
-/*     case RESET:
+    /*     case RESET:
       return {
         ...state,
         countries: [...state.allCountries],

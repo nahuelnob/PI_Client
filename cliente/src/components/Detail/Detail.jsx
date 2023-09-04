@@ -43,26 +43,46 @@ export const Detail = () => {
       <Searchbar />
       <div className={style.div}>
         <div className={style.contenedor}>
-          <div className={style.cont}>
+          <div className={style.contImg}>
             <img className={style.flag} src={flags} alt={name} />
-            <h1>{name}</h1>
           </div>
+          <div className={style.contAct}>
+            <span>ACTIVIDADES:</span>
+            <p className={style.act}>
+              {actividades?.length > 0 ? actividades : "S/D"}
+            </p>
+          </div>
+        </div>
 
+        <div className={style.contenedor2}>
           <div className={style.info}>
-            <div>
-              <p>ID: {id}</p>
-              <p>CONTINENT: {continent}</p>
-              <p>CAPITAL: {capital ? capital : "S/D"}</p>
-              <p>SUBREGION: {subRegion ? subRegion : "S/D"}</p>
-              <p>POBLACION: {population ? population : "S/D"}</p>
-              <p>AREA: {area ? area : "S/D"} kms²</p>
-            </div>
-
-            <div className={style.act}>
-              <p>
-                ACTIVIDADES: {actividades?.length > 0 ? actividades : "S/D"}
-              </p>
-            </div>
+            <h1 className={style.titulo}>{name}</h1>
+            <hr />
+            <p>
+              <span>ID : </span>
+              {id}
+            </p>
+            <p>
+              <span>CONTINENT : </span>
+              {continent}
+            </p>
+            <p>
+              <span>CAPITAL : </span>
+              {capital ? capital : "S/D"}
+            </p>
+            <p>
+              <span>SUBREGION : </span>
+              {subRegion ? subRegion : "S/D"}
+            </p>
+            <p>
+              <span>POBLACION : </span>
+              {population ? population : "S/D"}{" "}
+              <i class="fa-solid fa-person"></i>
+            </p>
+            <p>
+              <span>AREA : </span>
+              {area ? area : "S/D"} kms²
+            </p>
           </div>
         </div>
       </div>

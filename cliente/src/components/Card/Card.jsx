@@ -8,8 +8,9 @@ export const Card = (props) => {
         <NavLink to={`/detail/${props.id}`}>
           <img className={style.img} src={props.flags} alt="" />
         </NavLink>
-      </div>
       <h2 className={style.name}>{props.name}</h2>
+      </div>
+
       <p className={style.text}>{props.id}</p>
       <p className={style.text}>{props.continent}</p>
       <p className={style.text}>{props.capital}</p>

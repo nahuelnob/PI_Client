@@ -16,7 +16,7 @@
   background-image: url("../../img/varias-banderas.avif");
   background-position: center;
   background-size: cover;
-  filter: grayscale(60%);
+  filter: grayscale(20%);
 }
 
 .form {

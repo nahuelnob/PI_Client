@@ -1,6 +1,11 @@
-import { ADD_COUNTRIES, ADD_ACTIVITIES,  ORDER , FILTER, /* RESET */} from "./types";
+import {
+  ADD_COUNTRIES,
+  ADD_ACTIVITIES,
+  ADD_USER,
+  ORDER,
+  FILTER /* RESET */,
+} from "./types";
 import axios from "axios";
-
 
 const URL = "http://localhost:3001";
 
@@ -48,6 +53,7 @@ export const addActivities = () => {
 };
 
 //////////////////////////////////////////////////////////
+
 //* No lo use al final
 // export const reset = () => {
 //   return {
