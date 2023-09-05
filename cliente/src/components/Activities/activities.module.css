@@ -9,11 +9,10 @@
 }
 
 .div2 {
-  background-color: red;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: rgba(0, 0, 0, 0.6); */
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 1rem 0rem 0rem 1rem;
   width: 75%;
   height: 100%;
@@ -21,32 +20,126 @@
 
   .conteinerAct {
     display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
     margin-top: 2rem;
-    background-color: cadetblue;
     height: 85%;
     width: 90%;
-    overflow: scroll;
+    overflow-y: scroll;
   }
 }
+
+/* ///////////////////Card//////////////////// */
 .divcard {
   display: flex;
   flex-direction: column;
-  margin: 1%;
-  background-color: red;
-  width: 20rem;
-  height: 30rem;
+  margin-top: 1%;
+  width: fit-content;
+  height: fit-content;
+
+  .card {
+    margin-left: 1rem;
+    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+    background-color: rgba(50, 50, 50, 0.8);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 14rem;
+    height: 14rem;
+    overflow: hidden;
+  }
+  .card:hover{
+    
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .nameAct {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    color: cornsilk;
+    filter: drop-shadow(1px 1px 3px black);
+  }
+  .p {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    text-indent: 1rem;
+    color: cornsilk;
+    margin-top: -3%;
+  }
+  .namePais {
+    position: relative;
+    top: 3%;
+    filter: drop-shadow(1px 1px 3px black);
+    color: cornsilk;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .flag {
+    position: relative;
+    top: -20%;
+    display: flex;
+    margin-top: -1rem;
+    width: 100%;
+    align-self: center;
+    filter: opacity(20%);
+  }
 }
-.card {
-  display: flex;
-  flex-direction: column;
-  background-color: cornsilk;
-  width: 20rem;
-  /* height: 10rem; */
+.divcard:hover{
+  transform:scale(1.05);
+  transition: transform 0.4s ease;
+  z-index: 1;
 }
+
 .div3 {
   width: 25%;
   height: 100%;
-  background-color: black;
-  /* background-color: rgba(0, 0, 0, 0.6); */
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 0rem 1rem 1rem 0rem;
+  .order {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    align-items:start;
+    .buttonOrder{
+      width: fit-content;
+      height: 2rem;
+      font-size: large;
+    }
+  }
+  .div3Title{
+    color: cornsilk;
+    font-size: 1.4rem;
+  }
+  .filter {
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: start;
+    .buttonFilter {
+      width: fit-content;
+      height: 2rem;
+      font-size: large;
+    }
+  }
 }
+
+.conteinerAct::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.conteinerAct::-webkit-scrollbar-thumb {
+  background-color: rgba(30, 143, 255, 0.438);
+  border-radius: 1rem;
+}
+
+/* .conteinerAct::-webkit-scrollbar-track {
+  background-color: black;
+  border-radius: 1rem;
+} */

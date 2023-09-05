@@ -5,7 +5,7 @@
 
 .div {
   display: flex;
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-left: auto;
   margin-right: auto;
   width: 60rem;
@@ -15,6 +15,20 @@
   filter: drop-shadow(0px 8px 8px black);
   font-family: "fuenteCountry";
 }
+/* .home {
+  position: absolute;
+  filter: drop-shadow(1px 10px 5px black) grayscale(20%);
+  left:16%;
+  top: 2%;
+  height: 2.5rem;
+}
+.home:hover{
+  color:aqua
+} */
+.buttons{
+  display: flex;
+}
+
 .div2 {
   border-radius: 1rem 0rem 0rem 1rem;
   animation: changeBackground 10s infinite;
@@ -90,19 +104,16 @@
   text-indent: 1rem;
 }
 
-
 .button {
   margin-bottom: 2rem;
   height: 2rem;
   font-size: large;
-
 }
 
 .label {
   color: cornsilk;
   margin: 0.5rem;
   font-size: large;
-
 }
 
 .labelAndInput {
@@ -112,14 +123,12 @@
   padding-bottom: 0.1rem;
 }
 
-.span{
+.span {
   display: flex;
   color: white;
-  justify-content: center ;
+  justify-content: center;
   font-size: large;
-
 }
-
 
 @keyframes changeBackground {
   0%,

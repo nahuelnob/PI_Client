@@ -33,7 +33,7 @@
     height: 2rem;
     width: 16rem;
     order: 2;
-    color:cornsilk;
+    color: cornsilk;
     font-family: "fuenteCountry";
   }
 }
@@ -43,12 +43,12 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 0rem 1rem 1rem 0rem;
- 
+
   .lateral {
     flex-direction: column;
     display: flex;
     align-items: center;
- 
+
     .input {
       margin-top: 1rem;
       width: 15rem;

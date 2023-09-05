@@ -12,8 +12,9 @@ import { Detail } from "./components/Detail/Detail";
 
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { addCountries } from "./redux/action/ations";
+import { addCountries} from "./redux/action/actionsCountries";
 import { Home } from "./components/Home/Home";
+import { addUser } from "./redux/action/actionsUser";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function App() {
       );
       // Traigo el access de la data (que el el status.json() del getUser del back)
       const { access } = data;
+      dispatch(addUser(email, password))
       access === true && alert("Login exitoso");
       // Seteo el acceso y si es true manda al home
       setAccess(access);

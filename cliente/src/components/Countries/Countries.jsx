@@ -1,35 +1,28 @@
-import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   addCountries,
-  orderCards,
-  filterCards,
-} from "../../redux/action/ations";
+  orderCountry,
+  filterCountry,
+} from "../../redux/action/actionsCountries";
 import style from "./countries.module.css";
-import { useState } from "react";
 
 export const Countries = () => {
   const dispatch = useDispatch();
-
-  // Traigo el estado GLOBAL y lo defino
-  const countries = useSelector((state) => state.countries);
-  // Traigo el estado GLOBAL y lo defino
-  const [count, setCount] = useState(false);
-  // Reset
+  // Vuelve a cargar todos los countries al estado global
   const handleReset = () => {
     dispatch(addCountries());
   };
   // Orden
   const handleOrder = (e) => {
     e.preventDefault();
-    dispatch(orderCards(e.target.value));
+    dispatch(orderCountry(e.target.value));
   };
   // Filtrado
   const handleFilter = (e) => {
     e.preventDefault();
-    !count && setCount(true);
-    count && setCount(false);
-    dispatch(filterCards(e.target.value));
+    /*     !count && setCount(true);
+    count && setCount(false); */
+    dispatch(filterCountry(e.target.value));
   };
   ///////////////////////////////////////////////////////
 
@@ -65,6 +58,7 @@ export const Countries = () => {
         </div>
       </div>
       <hr />
+      
       {/* FILTER */}
       <div className={style.filter}>
         <h3 className={style.titulo}>Buscar por continentes</h3>
