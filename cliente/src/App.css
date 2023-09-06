@@ -1,34 +1,3 @@
-/* .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-image: url(https://img.freepik.com/fotos-premium/varias-banderas-paises_13339-286829.jpg?size=626&ext=jpg&ga=GA1.2.908157950.1692313965&semt=ais);
-  background-size: cover;
-  width: 100%;
-  height: 50rem;
-  animation: changeBackground 20s infinite;
-}
-
-.backImage{
-  filter: sepia(85%);
-}
-@keyframes changeBackground {
-  0%,
-  100% {
-    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/8396e1f4-2011-4182-8e22-bf2dd5966544_woman-libre-1200_default_0.webp);
-  }
-  
-  25% {
-    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/dfd574d4-8c6a-431c-948b-308a93e9f3a4_woman-libre-1200_default_0.webp);
-  }
-
-  50% {
-    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/5f246ece-301d-4619-a1ac-b78ebba7f2d7_woman-libre-1200_default_0.webp);
-  }
-  75% {
-    background-image: url(https://estaticos-cdn.prensaiberica.es/clip/ba2de28e-37f8-420d-b9b0-cd9538439edc_woman-libre-1200_default_0.webp);
-  }
-} */
 .App {
   position: relative;
   display: flex;
@@ -46,36 +15,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-color: rgb(49, 49, 49); */
-  /* background-image: url(https://img.freepik.com/fotos-premium/varias-banderas-paises_13339-286829.jpg?size=626&ext=jpg&ga=GA1.2.908157950.1692313965&semt=ais); */
-  /* background-image: url(https://img.freepik.com/fotos-premium/mapa-mundial-como-era-decada-1940-incluida-urss-otras-diferencias_749345-1315.jpg?w=740); */
-  /* background-image: url(https://img.freepik.com/fotos-premium/banderas-paises-miembros-otan-banderas-miembros-otan-cumbre-otan_220166-89.jpg?w=900); */
-  /* background-image: url(https://img.freepik.com/fotos-premium/ilustraciones-dia-mundial-poblacion-generadas-partir-mapas-composicion-poblaciongenerados-ia_919582-2468.jpg?w=900); */
-  /* background-image: url(https://img.freepik.com/fotos-premium/globo-luminoso-contra-telon-fondo-ciudad-noche-ia-generativa_935190-215.jpg?w=900); */
   background-image: url("../src/img/inicio.avif");
   background-size: cover;
   background-position: center;
   filter: grayscale(50%);
-  /* filter: sepia(85%); */
-  /* animation: changeBackground 10s infinite; */
   pointer-events: none;
 }
 
-/* @keyframes changeBackground {
-  0%,
-  100% {
-    background-image: url('../src/img/china.webp');
-  }
-  25% {
-    background-image: url('../src/img/glaciar.webp');
-  }
-  50% {
-    background-image: url('../src/img/rusia.webp');
-  }
-  75% {
-    background-image: url('../src/img/cañon.webp');
-  }
-} */
+
 input {
   background-color: cornsilk;
   font-family: "fuenteCountry";

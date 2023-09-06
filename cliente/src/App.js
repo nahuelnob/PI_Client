@@ -12,9 +12,10 @@ import { Detail } from "./components/Detail/Detail";
 
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { addCountries} from "./redux/action/actionsCountries";
+import { addCountries } from "./redux/action/actionsCountries";
 import { Home } from "./components/Home/Home";
 import { addUser } from "./redux/action/actionsUser";
+import Searchbar from "./components/SearchBar/SearchBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,12 +43,14 @@ function App() {
       );
       // Traigo el access de la data (que el el status.json() del getUser del back)
       const { access } = data;
-      dispatch(addUser(email, password))
+      // Le paso el emial al estado global User (solo lo uso para que aparesca q esta logueado)
+      dispatch(addUser(email, password));
       access === true && alert("Login exitoso");
       // Seteo el acceso y si es true manda al home
       setAccess(access);
       access && navigate("/home");
-      handleCountries() /*  && Countries() */;
+      // Le mando los countries al estado global
+      handleCountries();
     } catch (error) {
       window.alert("El usuario o la contraseña son incorrectos");
     }
@@ -60,14 +63,18 @@ function App() {
     !access && navigate("/");
   }, [access]);
 
-  // Conecto con el estado global
-  // const countries = useSelector((state) => state.countries)
-
   return (
     <div className="App">
-      <div className="backImage"></div>
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route
+          path="/home"
+          element={
+            <>
+              <Home />
+              <Searchbar setAccess={setAccess} />
+            </>
+          }
+        />
         <Route path="/" element={<Form login={login} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/registerAct" element={<FormAct />} />

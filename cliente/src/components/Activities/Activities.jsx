@@ -9,6 +9,7 @@ import Searchbar from "../SearchBar/SearchBar";
 import style from "./activities.module.css";
 
 export const Activities = () => {
+  
   const dispatch = useDispatch();
   // El estado Global
   const activities = useSelector((state) => state.activities);
@@ -44,7 +45,7 @@ export const Activities = () => {
       <div className={style.divcard}>
         <div className={style.card}>
           <h3 className={style.nameAct}>{name}</h3>
-          <br />
+          <hr className={style.hr}/>
           <p className={style.p}>Dificultad: {difficulty}</p>
           <p className={style.p}>Duracion: {duration} hs</p>
           <p className={style.p}>Temporada: {season}</p>

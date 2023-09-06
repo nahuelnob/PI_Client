@@ -3,9 +3,12 @@ import { useState } from "react";
 
 import axios from "axios";
 import style from "./formAct.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addActivities } from "../../redux/action/actionsActivitis";
 
 export const FormAct = () => {
+  const dispatch = useDispatch();
+  // dispatch(addActivities())
   // Traigo el estado global
   const countries = useSelector((state) => state.countries);
 
@@ -29,7 +32,7 @@ export const FormAct = () => {
         activity
       );
       window.alert("Actividad subida correctamente");
-      navigate("/activities");
+      dispatch(addActivities()) && navigate("/activities");
     } catch (error) {
       window.alert(error.message);
     }
@@ -46,6 +49,7 @@ export const FormAct = () => {
   // ejecuto la funcion del post
   const handleSubmit = (e) => {
     e.preventDefault();
+    //para que actualice el estado global una vez creada la act
     newActivity(activityData);
   };
   // ejecuto la funcion del post
@@ -169,22 +173,22 @@ export const FormAct = () => {
             </div>
 
             <div className={style.buttons}>
-            {/* <NavLink to={"/home"}> */}
-            <button
-              className={style.button}
-              type="submit"
-              onClick={handleBack}
-            >
-              <i class="fa-solid fa-circle-left"></i> Home
-            </button>
-            {/* </NavLink> */}
-            <button
-              className={style.button}
-              type="submit"
-              onClick={handleSubmit}
-            >
-              <i class="fa-solid fa-upload"></i> Subir
-            </button>
+              {/* <NavLink to={"/home"}> */}
+              <button
+                className={style.button}
+                type="submit"
+                onClick={handleBack}
+              >
+                <i class="fa-solid fa-circle-left"></i> Home
+              </button>
+              {/* </NavLink> */}
+              <button
+                className={style.button}
+                type="submit"
+                onClick={handleSubmit}
+              >
+                <i class="fa-solid fa-upload"></i> Subir
+              </button>
             </div>
           </form>
         </div>

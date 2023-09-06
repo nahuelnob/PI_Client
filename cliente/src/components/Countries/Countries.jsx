@@ -6,7 +6,8 @@ import {
 } from "../../redux/action/actionsCountries";
 import style from "./countries.module.css";
 
-export const Countries = () => {
+export const Countries = (props) => {
+  // console.log(props);
   const dispatch = useDispatch();
   // Vuelve a cargar todos los countries al estado global
   const handleReset = () => {
@@ -58,7 +59,7 @@ export const Countries = () => {
         </div>
       </div>
       <hr />
-      
+
       {/* FILTER */}
       <div className={style.filter}>
         <h3 className={style.titulo}>Buscar por continentes</h3>

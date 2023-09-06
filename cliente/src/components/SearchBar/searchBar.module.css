@@ -36,10 +36,10 @@
       justify-content: center;
       align-items: center;
     }
-    .user:hover {
+    /* .user:hover {
       transform: scale(1.1);
       transition: transform 0.4s ease;
-    }
+    } */
     .button {
       width: 13rem;
       height: 2rem;

@@ -65,7 +65,7 @@
     position: relative;
     display: flex;
     justify-content: start;
-    text-indent: 1rem;
+    text-indent: 2.5rem;
     color: cornsilk;
     margin-top: -3%;
   }
@@ -143,3 +143,9 @@
   background-color: black;
   border-radius: 1rem;
 } */
+
+.hr{
+  position: relative;
+  top: -6%;
+  width: 65%;
+}

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { Card } from "../Card/Card";
@@ -14,31 +14,32 @@ export const Home = () => {
   const [country, setCountry] = useState([]);
   // Estado local para tomar el nombre desde el input
   const [name, setName] = useState("");
-
+  
   ///////////////////////////////////////////////////////////
   // Traigo el estado global
   const countries = useSelector((state) => state.countries);
-
+  
   ///////////////////////////////////////////////////////////
   // PASAR DE PAGINAS | 10 x Pag
   // Estado local para las paginas
   const [paginaActual, setpaginaActual] = useState(1);
-
+  
   const cardsxPage = 10;
   const startIndex = (paginaActual - 1) * cardsxPage;
   const endIndex = startIndex + cardsxPage;
-
+  
   // 10 paises x pag, depende si hay algo en el estado local
   const paisesx10 =
-    country.length === 0
-      ? countries.slice(startIndex, endIndex)
-      : country.slice(startIndex, endIndex);
-
+  country.length === 0
+  ? countries.slice(startIndex, endIndex)
+  : country.slice(startIndex, endIndex);
+  
   // Total de paginas dependiendo de donde toma al pais
   const totalPages =
-    country.length === 0
-      ? Math.ceil(countries.length / cardsxPage)
-      : Math.ceil(country.length / cardsxPage);
+  country.length === 0
+  ? Math.ceil(countries.length / cardsxPage)
+  : Math.ceil(country.length / cardsxPage);
+  
 
   const goToPreviousPage = () => {
     paginaActual > 1 && setpaginaActual(paginaActual - 1);
@@ -105,7 +106,7 @@ export const Home = () => {
 
   return (
     <>
-      <Searchbar />
+      {/* <Searchbar /> */}
       <div className={style.div}>
         {/* Paises */}
         <div className={style.div2}>
@@ -116,7 +117,7 @@ export const Home = () => {
             <button className={style.button} onClick={goToPreviousPage}>
               <i class="fa-solid fa-circle-chevron-left"></i> Anterior
             </button>
-            {paginaActual > totalPages ? totalPages : paginaActual}/{totalPages}
+            {paginaActual > totalPages ? totalPages && setpaginaActual(totalPages) : paginaActual}/{totalPages}
             {/* {paginaActual}/{totalPages} */}
             <button className={style.button} onClick={goToNextPage}>
               Siguiente <i class="fa-solid fa-circle-chevron-right"></i>
