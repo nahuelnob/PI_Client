@@ -1,35 +1,53 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   addActivities,
+  filterActCountry,
   filterActDifficulty,
   filterActSeason,
   orderAct,
 } from "../../redux/action/actionsActivitis";
 import Searchbar from "../SearchBar/SearchBar";
 import style from "./activities.module.css";
+import { useState } from "react";
 
 export const Activities = () => {
-  
   const dispatch = useDispatch();
   // El estado Global
   const activities = useSelector((state) => state.activities);
+
+  // Construyo un estado local para luego filtrar act x pais
+  const [pais, SetPais] = useState({
+    pais: "",
+  });
+  // Funcion que setea el estado local
+  const handleChange = (e) => {
+    SetPais({ ...pais, [e.target.name]: e.target.value.toLowerCase() });
+  };
+
   // funcion que hace ver todas las actividades
   const handleSeeAll = () => {
     dispatch(addActivities());
   };
 
-  // Filtrado
+  // Filtrado x season
   const handleFilter = (e) => {
     e.preventDefault();
     dispatch(filterActSeason(e.target.value));
   };
+  // Filtrado x dificultad
   const handleFilterDif = (e) => {
     e.preventDefault();
     dispatch(filterActDifficulty(Number(e.target.value)));
   };
+  //  Filtrado x pais al hacer enter
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      dispatch(filterActCountry(pais.pais));
+    }
+  };
+  // Orden
   const handleOrder = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
     dispatch(orderAct(e.target.value));
   };
 
@@ -45,13 +63,12 @@ export const Activities = () => {
       <div className={style.divcard}>
         <div className={style.card}>
           <h3 className={style.nameAct}>{name}</h3>
-          <hr className={style.hr}/>
+          <hr className={style.hr} />
           <p className={style.p}>Dificultad: {difficulty}</p>
           <p className={style.p}>Duracion: {duration} hs</p>
           <p className={style.p}>Temporada: {season}</p>
           <h3 className={style.namePais}>{pais[0].name}</h3>
           <img className={style.flag} src={pais[0].flags} alt="" />
-          {/* <div>{pais[0].name}</div> */}
         </div>
       </div>
     );
@@ -66,6 +83,25 @@ export const Activities = () => {
         </div>
 
         <div className={style.div3}>
+          <input
+            className={style.input}
+            autoComplete="off"
+            type="text"
+            name="pais"
+            value={pais.pais}
+            onChange={handleChange}
+            onKeyPress={handleKeyPress}
+            placeholder="Buscar actividad por país..."
+          />
+          <i
+            className="fa-solid fa-magnifying-glass"
+            style={{
+              position: "absolute",
+              top: 25,
+              right: 40,
+              color: "grey",
+            }}
+          />
           {/* ORDER */}
           <div className={style.order}>
             <h3 className={style.div3Title}> Ordenar</h3>
@@ -102,7 +138,7 @@ export const Activities = () => {
                 >
                   <i class="fa-solid fa-arrow-down-9-1" /> Duración
                 </button>
-              <hr />
+                <hr />
               </div>
             </div>
           </div>

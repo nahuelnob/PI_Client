@@ -1,6 +1,7 @@
 import {
   ADD_ACTIVITIES,
   FILTER_ACT,
+  FILTER_ACT_COUNTRY,
   FILTER_ACT_DIF,
   ORDER_ACT,
 } from "./types";
@@ -35,6 +36,12 @@ export const filterActDifficulty = (difficulty) => {
   return {
     type: FILTER_ACT_DIF,
     payload: difficulty,
+  };
+};
+export const filterActCountry = (country) => {
+  return {
+    type: FILTER_ACT_COUNTRY,
+    payload: country,
   };
 };
 

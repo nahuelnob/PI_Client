@@ -49,8 +49,7 @@
     height: 14rem;
     overflow: hidden;
   }
-  .card:hover{
-    
+  .card:hover {
     background-color: rgba(0, 0, 0, 0.6);
   }
   .nameAct {
@@ -87,11 +86,11 @@
     margin-top: -1rem;
     width: 100%;
     align-self: center;
-    filter: opacity(20%);
+    filter: opacity(20%) ;
   }
 }
-.divcard:hover{
-  transform:scale(1.05);
+.divcard:hover {
+  transform: scale(1.05);
   transition: transform 0.4s ease;
   z-index: 1;
 }
@@ -101,20 +100,31 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 0rem 1rem 1rem 0rem;
+  .input {
+    margin-top: 1rem;
+    margin-left: 9.3%;
+    width: 15rem;
+    height: 1.6rem;
+    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+    border-color: transparent;
+    text-indent: 1rem;
+  }
   .order {
     display: flex;
     flex-direction: column;
     margin-left: 10%;
-    align-items:start;
-    .buttonOrder{
+    align-items: start;
+    .buttonOrder {
       width: fit-content;
       height: 2rem;
       font-size: large;
     }
   }
-  .div3Title{
+  .div3Title {
     color: cornsilk;
     font-size: 1.4rem;
+    margin-bottom: 1%;
+    margin-top: 5%;
   }
   .filter {
     margin-left: 10%;
@@ -144,7 +154,7 @@
   border-radius: 1rem;
 } */
 
-.hr{
+.hr {
   position: relative;
   top: -6%;
   width: 65%;

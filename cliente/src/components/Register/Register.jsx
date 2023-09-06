@@ -22,11 +22,15 @@ const Register = () => {
   // Funcion que se encarga del post
   const nwUser = async (user) => {
     try {
+      if(err.nombre) throw Error(err.nombre)
+      if(err.apellido) throw Error(err.apellido)
+      if(err.email) throw Error(err.email)
+      if(err.password) throw Error(err.password)
       await axios.post(`http://localhost:3001/user`, user);
       window.alert("usuario creado con exito");
       navigate("/");
     } catch (error) {
-      window.alert(error.message);
+      window.alert(error.response.data.error);
     }
   };
   // Funcion para setaear los estados locales
@@ -60,6 +64,7 @@ const Register = () => {
             placeholder="nombre..."
             onChange={handleChange}
           ></input>
+          <p className={style.text}>{err.nombre}</p>
         </div>
         <div className={style.labelAndInput}>
           <label className={style.label} htmlFor="apellido">
@@ -75,6 +80,7 @@ const Register = () => {
             placeholder="apellido..."
             onChange={handleChange}
           ></input>
+          <p className={style.text}>{err.apellido}</p>
         </div>
         <div className={style.labelAndInput}>
           <label className={style.label} htmlFor="email">
@@ -89,9 +95,9 @@ const Register = () => {
             value={userData.email}
             placeholder="ingrese su email..."
             onChange={handleChange}
-            ></input>
-            </div>
-          {/* <p style={{ color: "white" }}>{errors.email}</p> */}
+          ></input>
+          <p className={style.text}>{err.email}</p>
+        </div>
         <div className={style.labelAndInput}>
           <label className={style.label} htmlFor="password">
             {" "}
@@ -106,17 +112,15 @@ const Register = () => {
             value={userData.password}
             onChange={handleChange}
           ></input>
+          <p className={style.text}>{err.password}</p>
         </div>
-        {/* <p style={{ color: "white" }}>{errors.password}</p> */}
         <button className={style.button} type="submit" onClick={handleSubmit}>
-        <i class="fa-solid fa-address-card"></i>{" "}
-          Regitrar
+          <i class="fa-solid fa-address-card"></i> Regitrar
         </button>
         <br />
         <NavLink to="/">
-        <button type="submit" className={style.button}>
-        <i class="fa-solid fa-right-to-bracket"></i>{" "}
-            Ingreso
+          <button type="submit" className={style.button}>
+            <i class="fa-solid fa-right-to-bracket"></i> Ingreso
           </button>
         </NavLink>
       </form>

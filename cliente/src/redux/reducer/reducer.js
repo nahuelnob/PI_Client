@@ -7,6 +7,7 @@ import {
   ORDER_ACT,
   FILTER_ACT,
   FILTER_ACT_DIF,
+  FILTER_ACT_COUNTRY,
 } from "../action/types";
 
 export const initialState = {
@@ -66,6 +67,14 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         activities: state.allActivities.filter(
           (act) => act.difficulty === action.payload
+        ),
+      };
+    case FILTER_ACT_COUNTRY:  
+      return {
+        ...state,
+        activities: state.allActivities.filter(
+            // (act) => (act.Countries[0].name).toLowerCase() === action.payload
+          (act) => (act.Countries[0].name).toLowerCase().includes(action.payload)
         ),
       };
 

@@ -13,7 +13,7 @@ const Searchbar = (props) => {
   const { email } = useSelector((state) => state.user);
 
   const handleLogOut = () =>{
-    const logOut = window.confirm('Esta seguro que desea cerrar sesin?')
+    const logOut = window.confirm('Esta seguro que desea cerrar sesión?')
     logOut && props.setAccess(false)
   }
   return (

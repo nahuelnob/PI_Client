@@ -34,10 +34,9 @@ export const FormAct = () => {
       window.alert("Actividad subida correctamente");
       dispatch(addActivities()) && navigate("/activities");
     } catch (error) {
-      window.alert(error.message);
+      window.alert(error.response.data.error);
     }
   };
-
   // seteo el estado local
   const handleChange = (e) => {
     setActivityData({
@@ -145,15 +144,7 @@ export const FormAct = () => {
                 {" "}
                 country{" "}
               </label>
-              {/*             <input
-              className={style.inputCountry}
-              type="text"
-              name="country"
-              placeholder="Country id..."
-              maxLength={3}
-              value={activityData.country}
-              onChange={handleChange}
-            ></input> */}
+
               <select
                 className={style.inputSelect}
                 name="country"
@@ -186,6 +177,7 @@ export const FormAct = () => {
                 className={style.button}
                 type="submit"
                 onClick={handleSubmit}
+                // onKeyPress={handleKeyPress}
               >
                 <i class="fa-solid fa-upload"></i> Subir
               </button>
