@@ -1,0 +1,13 @@
+.div {
+  left: 16%;
+  top: 75%;
+  position: absolute;
+  width: 20%;
+  filter: grayscale(100%) drop-shadow(1px 1px 3px black);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: gray;
+  font-family: "fuenteCountry";
+}
+

@@ -16,6 +16,7 @@ import { addCountries } from "./redux/action/actionsCountries";
 import { Home } from "./components/Home/Home";
 import { addUser } from "./redux/action/actionsUser";
 import Searchbar from "./components/SearchBar/SearchBar";
+import { PersonalBrand } from "./components/PersonalBrand/PersonalBrand";
 
 function App() {
   const dispatch = useDispatch();
@@ -75,7 +76,15 @@ function App() {
             </>
           }
         />
-        <Route path="/" element={<Form login={login} />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Form login={login} />
+              <PersonalBrand />
+            </>
+          }
+        />
         <Route path="/register" element={<Register />} />
         <Route path="/registerAct" element={<FormAct />} />
         <Route path="/countries" element={<Countries />} />
