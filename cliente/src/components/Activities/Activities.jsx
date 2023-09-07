@@ -152,7 +152,7 @@ export const Activities = () => {
             <button
               className={style.buttonFilter}
               onClick={handleFilter}
-              value="summer"
+              value="Verano"
             >
               <i class="fa-solid fa-umbrella-beach" /> Verano
             </button>
@@ -160,21 +160,21 @@ export const Activities = () => {
             <button
               className={style.buttonFilter}
               onClick={handleFilter}
-              value="autumn"
+              value="Otoño"
             >
               <i class="fa-brands fa-canadian-maple-leaf" /> Otoño
             </button>
             <button
               className={style.buttonFilter}
               onClick={handleFilter}
-              value="winter"
+              value="Invierno"
             >
               <i class="fa-solid fa-snowflake" /> Invierno
             </button>
             <button
               className={style.buttonFilter}
               onClick={handleFilter}
-              value="spring"
+              value="Primavera"
             >
               <i class="fa-solid fa-tree" /> Primavera
             </button>

@@ -10,7 +10,8 @@ export const FormAct = () => {
   const dispatch = useDispatch();
   // dispatch(addActivities())
   // Traigo el estado global
-  const countries = useSelector((state) => state.countries);
+  // const countries = useSelector((state) => state.countries);
+  const allCountries = useSelector((state) => state.allCountries);
 
   // traigo el navigate para q despues de subir correctamente te lleve a otro lado
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ export const FormAct = () => {
     name: "",
     difficulty: 3,
     duration: "",
-    season: "summer",
+    season: "Verano",
     country: "",
   });
 
@@ -63,11 +64,11 @@ export const FormAct = () => {
         <div className={style.div}>
           <div
             className={
-              activityData.season === "autumn"
+              activityData.season === "Otoño"
                 ? style.div2
-                : activityData.season === "winter"
+                : activityData.season === "Invierno"
                 ? style.div2winter
-                : activityData.season === "spring"
+                : activityData.season === "Primavera"
                 ? style.div2spring
                 : style.div2summer
             }
@@ -133,10 +134,10 @@ export const FormAct = () => {
                 value={activityData.season}
                 onChange={handleChange}
               >
-                <option value="summer">Verano</option>
-                <option value="autumn">Otoño</option>
-                <option value="winter">Invierno</option>
-                <option value="spring">Primavera</option>
+                <option value="Verano">Verano</option>
+                <option value="Otoño">Otoño</option>
+                <option value="Invierno">Invierno</option>
+                <option value="Primavera">Primavera</option>
               </select>
             </div>
             <div className={style.labelAndInput}>
@@ -152,7 +153,7 @@ export const FormAct = () => {
                 id=""
                 onChange={handleChange}
               >
-                {countries
+                {allCountries
                   .slice() // copio el array
                   .sort((a, b) => a.name.localeCompare(b.name)) // lo ordeno
                   .map((item) => {
