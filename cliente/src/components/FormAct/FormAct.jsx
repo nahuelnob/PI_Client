@@ -1,4 +1,4 @@
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import axios from "axios";
@@ -8,9 +8,7 @@ import { addActivities } from "../../redux/action/actionsActivitis";
 
 export const FormAct = () => {
   const dispatch = useDispatch();
-  // dispatch(addActivities())
   // Traigo el estado global
-  // const countries = useSelector((state) => state.countries);
   const allCountries = useSelector((state) => state.allCountries);
 
   // traigo el navigate para q despues de subir correctamente te lleve a otro lado
@@ -28,10 +26,7 @@ export const FormAct = () => {
   // funcion para el post
   const newActivity = async (activity) => {
     try {
-      const { data } = await axios.post(
-        `http://localhost:3001/activities`,
-        activity
-      );
+      await axios.post(`http://localhost:3001/activities`, activity);
       window.alert("Actividad subida correctamente");
       dispatch(addActivities()) && navigate("/activities");
     } catch (error) {
@@ -165,7 +160,6 @@ export const FormAct = () => {
             </div>
 
             <div className={style.buttons}>
-              {/* <NavLink to={"/home"}> */}
               <button
                 className={style.button}
                 type="submit"
@@ -173,7 +167,6 @@ export const FormAct = () => {
               >
                 <i class="fa-solid fa-circle-left"></i> Home
               </button>
-              {/* </NavLink> */}
               <button
                 className={style.button}
                 type="submit"

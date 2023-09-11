@@ -67,8 +67,10 @@ export const Activities = () => {
           <p className={style.p}>Dificultad: {difficulty}</p>
           <p className={style.p}>Duracion: {duration} hs</p>
           <p className={style.p}>Temporada: {season}</p>
-          <h3 className={style.namePais}>{pais[0].name}</h3>
-          <img className={style.flag} src={pais[0].flags} alt="" />
+          <h3 className={style.namePais}>{pais.map((i) => i.name+" ")}</h3>
+          <img className={style.flag} src={pais.map((i) => i.flags)} alt={`${pais[0].name} flag`} />
+          {/* <h3 className={style.namePais}>{pais[0].name}</h3> */}
+          {/* <img className={style.flag} src={pais[0].flags} alt="" /> */}
         </div>
       </div>
     );

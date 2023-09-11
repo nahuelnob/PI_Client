@@ -1,22 +1,23 @@
 import "./App.css";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-
-import { Form } from "./components/Form/Form";
-import Register from "./components/Register/Register";
-
-import { FormAct } from "./components/FormAct/FormAct";
-import { Activities } from "./components/Activities/Activities";
-import { Countries } from "./components/Countries/Countries";
-import { Detail } from "./components/Detail/Detail";
 
 import axios from "axios";
+
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addCountries } from "./redux/action/actionsCountries";
-import { Home } from "./components/Home/Home";
-import { addUser } from "./redux/action/actionsUser";
+import { Route, Routes, useNavigate } from "react-router-dom";
+
 import Searchbar from "./components/SearchBar/SearchBar";
 import { PersonalBrand } from "./components/PersonalBrand/PersonalBrand";
+import { Form } from "./components/Form/Form";
+import Register from "./components/Register/Register";
+import { Home } from "./components/Home/Home";
+import { Countries } from "./components/Countries/Countries";
+import { Detail } from "./components/Detail/Detail";
+import { FormAct } from "./components/FormAct/FormAct";
+import { Activities } from "./components/Activities/Activities";
+
+import { addCountries } from "./redux/action/actionsCountries";
+import { addUser } from "./redux/action/actionsUser";
 
 function App() {
   const dispatch = useDispatch();

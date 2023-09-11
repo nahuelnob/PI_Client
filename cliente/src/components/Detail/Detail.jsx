@@ -44,7 +44,7 @@ export const Detail = () => {
       <div className={style.div}>
         <div className={style.contenedor}>
           <div className={style.contImg}>
-            <img className={style.flag} src={flags} alt={name} />
+            <img className={style.flag} src={flags} alt={`${name} flag`} />
           </div>
           <div className={style.contAct}>
             <span>ACTIVIDADES:</span>

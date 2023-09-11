@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
 import validation from "../Form/validation";
 import style from "./form.module.css";
-import Searchbar from "../SearchBar/SearchBar";
 
 export const Form = (props) => {
   // saco al login de las props que mando desde app.js

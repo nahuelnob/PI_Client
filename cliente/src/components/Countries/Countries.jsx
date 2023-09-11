@@ -141,42 +141,6 @@ export const Countries = (props) => {
           <i class="fa-solid fa-earth-oceania" /> Oceania
         </button>
       </div>
-
-      {/* ORDER */}
-      {/* <div className={style.order}>
-        <div>
-          <button
-            className={style.buttonOrder}
-            onClick={handleOrder}
-            value="A"
-          >
-            <i class="fa-solid fa-arrow-down-a-z"/>
-          </button>
-          <button
-            className={style.buttonOrder}
-            onClick={handleOrder}
-            value="D"
-          >
-            <i class="fa-solid fa-arrow-down-z-a"/>
-          </button>
-        </div>
-        <div>
-          <button
-            className={style.buttonOrder}
-            onClick={handleOrder}
-            value="PD"
-          >
-            pop <i class="fa-solid fa-arrow-down-wide-short"/>
-          </button>
-          <button
-            className={style.buttonOrder}
-            onClick={handleOrder}
-            value="PA"
-          >
-            pop <i class="fa-solid fa-arrow-down-short-wide"/>
-          </button>
-        </div>
-      </div> */}
     </div>
   );
 };

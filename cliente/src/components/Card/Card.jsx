@@ -6,7 +6,7 @@ export const Card = (props) => {
     <div className={style.div}>
       <div className={style.containerImg}>
         <NavLink to={`/detail/${props.id}`}>
-          <img className={style.img} src={props.flags} alt="" />
+          <img className={style.img} src={props.flags} alt={`${props.name} flag`} />
         </NavLink>
       <h2 className={style.name}>{props.name}</h2>
       </div>
