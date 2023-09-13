@@ -98,10 +98,16 @@
 
 .inputSelect {
   width: 15rem;
-  height: 1.8rem;
+  height: 2rem;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
 
   text-indent: 1rem;
+}
+.buttonMoreCountries{
+  position: absolute;
+  top:74.5%;
+  right: 15%;
+  font-size: 90%;
 }
 
 .button {

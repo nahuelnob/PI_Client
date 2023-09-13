@@ -73,7 +73,6 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         activities: state.allActivities.filter(
-            // (act) => (act.Countries[0].name).toLowerCase() === action.payload
           (act) => (act.Countries[0].name).toLowerCase().includes(action.payload)
         ),
       };

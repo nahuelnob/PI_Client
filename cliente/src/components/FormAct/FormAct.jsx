@@ -20,14 +20,15 @@ export const FormAct = () => {
     difficulty: 3,
     duration: "",
     season: "Verano",
-    country: "",
+    country: [],
   });
 
   // funcion para el post
   const newActivity = async (activity) => {
     try {
+      if (activityData.country.length < 1) return window.alert("Falto agregar un país");
       await axios.post(`http://localhost:3001/activities`, activity);
-      window.alert("Actividad subida correctamente");
+      window.alert("Actividad subida correctamente")
       dispatch(addActivities()) && navigate("/activities");
     } catch (error) {
       window.alert(error.response.data.error);
@@ -52,6 +53,19 @@ export const FormAct = () => {
     e.preventDefault();
     navigate("/home");
   };
+
+  // Para agregar un pais al estado local
+  const handleMoreCountry = (e) => {
+    e.preventDefault();
+    if (activityData.country.includes(e.target.parentElement.querySelector("select[name='country']").value)) return window.alert("Ese país ya estaba agregado")
+        setActivityData({
+      ...activityData,
+      [e.target.name]: [...activityData.country, e.target.parentElement.querySelector("select[name='country']").value]
+    });
+    window.alert('Pais agregado correctamente')
+  };
+
+  console.log(activityData);
 
   return (
     <>
@@ -144,9 +158,9 @@ export const FormAct = () => {
               <select
                 className={style.inputSelect}
                 name="country"
-                value={activityData.country}
                 id=""
-                onChange={handleChange}
+                // value={activityData.country}
+                // onClick={handleMoreCountry}
               >
                 {allCountries
                   .slice() // copio el array
@@ -157,6 +171,15 @@ export const FormAct = () => {
                     return <option value={id}>{name}</option>;
                   })}
               </select>
+              <button
+                className={style.buttonMoreCountries}
+                type="submit"
+                onClick={handleMoreCountry}
+                name="country"
+                value={activityData.country}
+              >
+                <i class="fa-solid fa-plus"></i> Agregar
+              </button>
             </div>
 
             <div className={style.buttons}>

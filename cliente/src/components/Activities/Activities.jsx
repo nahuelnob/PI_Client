@@ -9,6 +9,7 @@ import {
 import Searchbar from "../SearchBar/SearchBar";
 import style from "./activities.module.css";
 import { useState } from "react";
+import variasBanderas from '../../img/varias-banderas.avif'
 
 export const Activities = () => {
   const dispatch = useDispatch();
@@ -68,7 +69,7 @@ export const Activities = () => {
           <p className={style.p}>Duracion: {duration} hs</p>
           <p className={style.p}>Temporada: {season}</p>
           <h3 className={style.namePais}>{pais.map((i) => i.name+" ")}</h3>
-          <img className={style.flag} src={pais.map((i) => i.flags)} alt={`${pais[0].name} flag`} />
+          <img className={style.flag} src={pais[0] && pais[1]  ? variasBanderas : pais.map((i) => i.flags)} alt={pais[0] && pais[1] ? 'Varios Paises flag':`${pais[0].name} flag`} />
           {/* <h3 className={style.namePais}>{pais[0].name}</h3> */}
           {/* <img className={style.flag} src={pais[0].flags} alt="" /> */}
         </div>
