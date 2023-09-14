@@ -79,7 +79,6 @@ export const Activities = () => {
 
   return (
     <>
-      <Searchbar />
       <div className={style.div}>
         <div className={style.div2}>
           <div className={style.conteinerAct}>{act}</div>

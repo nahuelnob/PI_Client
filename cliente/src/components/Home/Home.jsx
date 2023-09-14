@@ -65,7 +65,6 @@ export const Home = () => {
       const { data } = await axios(
         `http://localhost:3001/countries?name=${name}`
       );
-      console.log(data);
       setCountry(data);
     } catch (error) {
       window.alert(error.message);

@@ -102,7 +102,7 @@ export const FormAct = () => {
             <div className={style.labelAndInput}>
               <label className={style.label} htmlFor="difficulty">
                 {" "}
-                difficulty <br />
+                Dificultad <br />
               </label>
               <input
                 className={style.input}
@@ -115,12 +115,12 @@ export const FormAct = () => {
                 max={5}
                 min={1}
               ></input>
-              <span className={style.span}>1 - 2 - 3 - 4 - 5</span>
+              <span className={style.span}>{/* 1 - 2 - 3 - 4 - 5 */}{activityData.difficulty}</span>
             </div>
             <div className={style.labelAndInput}>
               <label className={style.label} htmlFor="duration">
                 {" "}
-                duration{" "}
+                Duración{" "}
               </label>
               <input
                 className={style.input}
@@ -134,7 +134,7 @@ export const FormAct = () => {
             <div className={style.labelAndInput}>
               <label className={style.label} htmlFor="season">
                 {" "}
-                season{" "}
+                Temporada{" "}
               </label>
 
               <select
@@ -152,7 +152,7 @@ export const FormAct = () => {
             <div className={style.labelAndInput}>
               <label className={style.label} htmlFor="country">
                 {" "}
-                country{" "}
+                País{" "}
               </label>
 
               <select

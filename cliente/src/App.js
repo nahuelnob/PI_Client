@@ -7,9 +7,9 @@ import { useDispatch } from "react-redux";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
 import Searchbar from "./components/SearchBar/SearchBar";
+import Register from "./components/Register/Register";
 import { PersonalBrand } from "./components/PersonalBrand/PersonalBrand";
 import { Form } from "./components/Form/Form";
-import Register from "./components/Register/Register";
 import { Home } from "./components/Home/Home";
 import { Countries } from "./components/Countries/Countries";
 import { Detail } from "./components/Detail/Detail";
@@ -18,6 +18,7 @@ import { Activities } from "./components/Activities/Activities";
 
 import { addCountries } from "./redux/action/actionsCountries";
 import { addUser } from "./redux/action/actionsUser";
+import { addActivities } from "./redux/action/actionsActivitis";
 
 function App() {
   const dispatch = useDispatch();
@@ -43,10 +44,13 @@ function App() {
       const { data } = await axios(
         `http://localhost:3001/user?email=${email}&password=${password}`
       );
-      // Traigo el access de la data (que el el status.json() del getUser del back)
+      // Traigo el access de la data (el que me da el status.json() del getUser del back)
       const { access } = data;
-      // Le paso el emial al estado global User (solo lo uso para que aparesca q esta logueado)
+      // Le paso el email al estado global User (solo lo uso para que aparesca q esta logueado)
       dispatch(addUser(email, password));
+      // Dispatch a addActivities asi se cargan las actividades en la pagina
+      dispatch(addActivities());
+
       access === true && alert("Login exitoso");
       // Seteo el acceso y si es true manda al home
       setAccess(access);
@@ -89,7 +93,15 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/registerAct" element={<FormAct />} />
         <Route path="/countries" element={<Countries />} />
-        <Route path="/activities" element={<Activities />} />
+        <Route
+          path="/activities"
+          element={
+            <>
+              <Searchbar setAccess={setAccess} />
+              <Activities />
+            </>
+          }
+        />
         <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </div>

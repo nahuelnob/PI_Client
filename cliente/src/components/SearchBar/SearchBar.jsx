@@ -1,15 +1,10 @@
 import { NavLink } from "react-router-dom";
 
 import style from "./searchBar.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { addActivities } from "../../redux/action/actionsActivitis";
+import { useSelector } from "react-redux";
 
 const Searchbar = (props) => {
-  const dispatch = useDispatch();
-  // Dispatch para q se vean las actividades cuando paso a la pag act
-  const handleAddActivities = () => {
-    dispatch(addActivities());
-  };
+
   const { email } = useSelector((state) => state.user);
 
   const handleLogOut = () =>{
@@ -34,7 +29,6 @@ const Searchbar = (props) => {
         <NavLink to={"/activities"}>
           <button
             className={style.button}
-            onClick={handleAddActivities}
             type="submit"
           >
             <i class="fa-solid fa-passport" /> Ver todas las actividades
