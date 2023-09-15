@@ -5,6 +5,7 @@ import axios from "axios";
 import style from "./formAct.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addActivities } from "../../redux/action/actionsActivitis";
+import validation from "./validation";
 
 export const FormAct = () => {
   const dispatch = useDispatch();
@@ -20,15 +21,19 @@ export const FormAct = () => {
     difficulty: 3,
     duration: "",
     season: "Verano",
-    country: [],
+    country: "",
   });
+  // Estado local para errores
+  const [err, setErr] = useState({});
 
   // funcion para el post
   const newActivity = async (activity) => {
     try {
-      if (activityData.country.length < 1) return window.alert("Falto agregar un país");
+      if (err.name) return window.alert(err.name);
+      if (activityData.country.length < 1)
+        return window.alert("Falto agregar un país");
       await axios.post(`http://localhost:3001/activities`, activity);
-      window.alert("Actividad subida correctamente")
+      window.alert("Actividad subida correctamente");
       dispatch(addActivities()) && navigate("/activities");
     } catch (error) {
       window.alert(error.response.data.error);
@@ -40,6 +45,7 @@ export const FormAct = () => {
       ...activityData,
       [e.target.name]: e.target.value,
     });
+    setErr(validation({ ...activityData, [e.target.name]: e.target.value }));
   };
 
   // ejecuto la funcion del post
@@ -57,15 +63,21 @@ export const FormAct = () => {
   // Para agregar un pais al estado local
   const handleMoreCountry = (e) => {
     e.preventDefault();
-    if (activityData.country.includes(e.target.parentElement.querySelector("select[name='country']").value)) return window.alert("Ese país ya estaba agregado")
-        setActivityData({
+    if (
+      activityData.country.includes(
+        e.target.parentElement.querySelector("select[name='country']").value
+      )
+    )
+      return window.alert("Ese país ya estaba agregado");
+    setActivityData({
       ...activityData,
-      [e.target.name]: [...activityData.country, e.target.parentElement.querySelector("select[name='country']").value]
+      [e.target.name]: [
+        ...activityData.country,
+        e.target.parentElement.querySelector("select[name='country']").value,
+      ],
     });
-    window.alert('Pais agregado correctamente')
+    window.alert("Pais agregado correctamente");
   };
-
-  console.log(activityData);
 
   return (
     <>
@@ -87,7 +99,7 @@ export const FormAct = () => {
             <div className={style.labelAndInput}>
               <label className={style.label} htmlFor="name">
                 {" "}
-                Nombre{" "}
+                Nombre <p className={style.text}>{err.name}</p>
               </label>
               <input
                 autocomplete="off"
@@ -106,7 +118,6 @@ export const FormAct = () => {
               </label>
               <input
                 className={style.input}
-                // type="number"
                 type="range"
                 name="difficulty"
                 value={activityData.difficulty}
@@ -115,7 +126,10 @@ export const FormAct = () => {
                 max={5}
                 min={1}
               ></input>
-              <span className={style.span}>{/* 1 - 2 - 3 - 4 - 5 */}{activityData.difficulty}</span>
+              <span className={style.span}>
+                {/* 1 - 2 - 3 - 4 - 5 */}
+                {activityData.difficulty}
+              </span>
             </div>
             <div className={style.labelAndInput}>
               <label className={style.label} htmlFor="duration">
@@ -155,22 +169,21 @@ export const FormAct = () => {
                 País{" "}
               </label>
 
-              <select
-                className={style.inputSelect}
-                name="country"
-                id=""
-                // value={activityData.country}
-                // onClick={handleMoreCountry}
-              >
+              <select className={style.inputSelect} name="country">
                 {allCountries
                   .slice() // copio el array
                   .sort((a, b) => a.name.localeCompare(b.name)) // lo ordeno
                   .map((item) => {
                     // lo mapeo y devuelvo uno nuevo
                     const { id, name } = item;
-                    return <option value={id}>{name}</option>;
+                    return (
+                      <option type="checkbox" value={id}>
+                        {name}
+                      </option>
+                    );
                   })}
               </select>
+
               <button
                 className={style.buttonMoreCountries}
                 type="submit"
@@ -194,7 +207,6 @@ export const FormAct = () => {
                 className={style.button}
                 type="submit"
                 onClick={handleSubmit}
-                // onKeyPress={handleKeyPress}
               >
                 <i class="fa-solid fa-upload"></i> Subir
               </button>
