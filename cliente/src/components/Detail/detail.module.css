@@ -40,7 +40,6 @@
   height: 12%;
   max-height: 20%;
   display: flex;
-  background-color: blue;
   flex-direction: row;
   align-items: center;
   text-align: left;
