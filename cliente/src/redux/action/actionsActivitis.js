@@ -6,17 +6,16 @@ import {
   ORDER_ACT,
 } from "./types";
 import axios from "axios";
-
 //! Antes del deploy
 // const URL = "http://localhost:3001";
 //* Despues del deploy
-const URL = "http://piserver-production.up.railway.app";
+const URL = "https://piserver-production.up.railway.app";
 
 // Agrega Actividades
 export const addActivities = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios(`/activities`);
+      const { data } = await axios(`${URL}/activities`);
       return dispatch({
         type: ADD_ACTIVITIES,
         payload: data,

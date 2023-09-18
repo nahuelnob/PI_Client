@@ -4,13 +4,13 @@ import axios from "axios";
 //! Antes del deploy
 // const URL = "http://localhost:3001";
 //* Despues del deploy
-const URL = "http://piserver-production.up.railway.app";
+const URL = "https://piserver-production.up.railway.app";
 
 // Agrega los paises
 export const addCountries = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios(`/countries`);
+      const { data } = await axios(`${URL}/countries`);
       return dispatch({
         type: ADD_COUNTRIES,
         payload: data,
