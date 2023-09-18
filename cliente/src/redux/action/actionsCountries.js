@@ -10,7 +10,7 @@ const URL = "http://piserver-production.up.railway.app";
 export const addCountries = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios(`${URL}/countries`);
+      const { data } = await axios(`/countries`);
       return dispatch({
         type: ADD_COUNTRIES,
         payload: data,

@@ -66,7 +66,7 @@ export const Home = () => {
         //! Antes del Deploy
         // `http://localhost:3001/countries?name=${name}`
         //* Despues del Deploy
-        `http://piserver-production.up.railway.app/countries?name=${name}`
+        `/countries?name=${name}`
       );
       setCountry(data);
     } catch (error) {

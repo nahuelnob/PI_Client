@@ -30,7 +30,7 @@ export const Detail = () => {
     //! antes del deploy
     // axios(`http://localhost:3001/countries/${id}`).then(({ data }) => {
     //* despues del deploy
-    axios(`http://piserver-production.up.railway.app/countries/${id}`).then(({ data }) => {
+    axios(`/countries/${id}`).then(({ data }) => {
       console.log(data);
       if (data.name) {
         setCountry(data);

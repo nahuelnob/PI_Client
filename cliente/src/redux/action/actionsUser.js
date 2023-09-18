@@ -11,7 +11,7 @@ export const addUser = (email, password) => {
   return async (dispatch) => {
     try {
       const { data } = await axios(
-        `${URL}/user?email=${email}&password=${password}`
+        `/user?email=${email}&password=${password}`
       );
       return dispatch({
         type: ADD_USER,

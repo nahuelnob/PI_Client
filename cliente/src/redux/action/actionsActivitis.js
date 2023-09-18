@@ -16,7 +16,7 @@ const URL = "http://piserver-production.up.railway.app";
 export const addActivities = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios(`${URL}/activities`);
+      const { data } = await axios(`/activities`);
       return dispatch({
         type: ADD_ACTIVITIES,
         payload: data,
