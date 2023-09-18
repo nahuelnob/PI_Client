@@ -63,7 +63,10 @@ export const Home = () => {
     try {
       if (name === "") return setCountry("");
       const { data } = await axios(
-        `http://localhost:3001/countries?name=${name}`
+        //! Antes del Deploy
+        // `http://localhost:3001/countries?name=${name}`
+        //* Despues del Deploy
+        `http://piserver-production.up.railway.app/countries?name=${name}`
       );
       setCountry(data);
     } catch (error) {

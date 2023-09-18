@@ -22,11 +22,14 @@ const Register = () => {
   // Funcion que se encarga del post
   const nwUser = async (user) => {
     try {
-      if(err.nombre) throw Error(err.nombre)
-      if(err.apellido) throw Error(err.apellido)
-      if(err.email) throw Error(err.email)
-      if(err.password) throw Error(err.password)
-      await axios.post(`http://localhost:3001/user`, user);
+      if (err.nombre) throw Error(err.nombre);
+      if (err.apellido) throw Error(err.apellido);
+      if (err.email) throw Error(err.email);
+      if (err.password) throw Error(err.password);
+      // ! Antes del Deploy
+      // await axios.post(`http://localhost:3001/user`, user);
+      // * Despues del Deploy
+      await axios.post(`http://piserver-production.up.railway.app/user`, user);
       window.alert("usuario creado con exito");
       navigate("/");
     } catch (error) {

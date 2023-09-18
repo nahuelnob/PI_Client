@@ -32,7 +32,10 @@ export const FormAct = () => {
       if (err.name) return window.alert(err.name);
       if (activityData.country.length < 1)
         return window.alert("Falto agregar un país");
-      await axios.post(`http://localhost:3001/activities`, activity);
+      //! Antes del deploy
+      // await axios.post(`http://localhost:3001/activities`, activity);
+      //* Despues del deploy
+      await axios.post(`http://piserver-production.up.railway.app/activities`, activity);
       window.alert("Actividad subida correctamente");
       dispatch(addActivities()) && navigate("/activities");
     } catch (error) {

@@ -1,7 +1,10 @@
 import { ADD_COUNTRIES, ORDER, FILTER } from "./types";
 import axios from "axios";
 
-const URL = "http://localhost:3001";
+//! Antes del deploy
+// const URL = "http://localhost:3001";
+//* Despues del deploy
+const URL = "http://piserver-production.up.railway.app";
 
 // Agrega los paises
 export const addCountries = () => {

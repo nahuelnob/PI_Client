@@ -30,7 +30,10 @@ function App() {
   /////////////////////////////////////////////////////////////////////////////////////
   const createBulkCountries = async () => {
     const { response } = await axios.post(
-      `http://localhost:3001/countries/bulk`
+      //!antes del deploy
+      // `http://localhost:3001/countries/bulk`
+      //* despues del deploy
+      `http://piserver-production.up.railway.app/countries/bulk`
     );
     return response;
   };
@@ -42,7 +45,10 @@ function App() {
   const login = async ({ email, password }) => {
     try {
       const { data } = await axios(
-        `http://localhost:3001/user?email=${email}&password=${password}`
+        //!antes del deploy
+        // `http://localhost:3001/user?email=${email}&password=${password}`
+        //* despues del deploy
+        `http://piserver-production.up.railway.app/user?email=${email}&password=${password}`
       );
       // Traigo el access de la data (el que me da el status.json() del getUser del back)
       const { access } = data;
