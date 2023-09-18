@@ -29,7 +29,7 @@ const Register = () => {
       // ! Antes del Deploy
       // await axios.post(`http://localhost:3001/user`, user);
       // * Despues del Deploy
-      await axios.post(`/user`, user);
+      await axios.post(`https://piserver-production.up.railway.app/user`, user);
       window.alert("usuario creado con exito");
       navigate("/");
     } catch (error) {

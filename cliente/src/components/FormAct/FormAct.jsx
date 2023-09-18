@@ -35,7 +35,7 @@ export const FormAct = () => {
       //! Antes del deploy
       // await axios.post(`http://localhost:3001/activities`, activity);
       //* Despues del deploy
-      await axios.post(`/activities`, activity);
+      await axios.post(`https://piserver-production.up.railway.app/activities`, activity);
       window.alert("Actividad subida correctamente");
       dispatch(addActivities()) && navigate("/activities");
     } catch (error) {
