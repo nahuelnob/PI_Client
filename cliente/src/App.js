@@ -71,7 +71,7 @@ function App() {
 
   // El useEffect hace q mientras el access = false se quede en '/' y no avance en la pagina
   useEffect(() => {
-    createBulkCountries();
+    // createBulkCountries();
     !access && navigate("/");
   }, [access]);
 
