@@ -31,7 +31,8 @@
 
 .div2 {
   border-radius: 1rem 0rem 0rem 1rem;
-  animation: changeBackground 10s infinite;
+  background-image: url("../../img/attun01.webp");
+  /* animation: changeBackground 10s infinite; */
   background-size: cover;
   filter: sepia(50%);
   background-position: center;
@@ -42,7 +43,8 @@
 .div2summer {
   /* filter: sepia(50%); */
   border-radius: 1rem 0rem 0rem 1rem;
-  animation: changeBackgroundSummer 10s infinite;
+  background-image: url("../../img/summe02.webp");
+  /* animation: changeBackgroundSummer 10s infinite; */
   background-size: cover;
   background-position: center;
   background-color: black;
@@ -52,7 +54,8 @@
 .div2winter {
   /* filter: sepia(50%); */
   border-radius: 1rem 0rem 0rem 1rem;
-  animation: changeBackgroundWinter 10s infinite;
+  /* animation: changeBackgroundWinter 10s infinite; */
+  background-image: url("../../img/glaciar.webp");
   background-size: cover;
   background-position: center;
   background-color: black;
@@ -62,7 +65,8 @@
 .div2spring {
   /* filter: sepia(50%); */
   border-radius: 1rem 0rem 0rem 1rem;
-  animation: changeBackgroundSpring 10s infinite;
+  background-image: url("../../img/china.webp");
+  /* animation: changeBackgroundSpring 10s infinite; */
   background-size: cover;
   background-position: center;
   background-color: black;
@@ -145,7 +149,7 @@
   justify-content: center;
 }
 
-@keyframes changeBackground {
+/* @keyframes changeBackground {
   0%,
   100% {
     background-image: url("../../img/attun01.webp");
@@ -204,4 +208,4 @@
   75% {
     background-image: url("../../img/spring03.webp");
   }
-}
+} */
